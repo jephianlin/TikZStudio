@@ -1,1 +1,1 @@
-# NewYearCards
+# Jephian's TikZ Studio
