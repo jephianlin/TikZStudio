@@ -120,7 +120,7 @@ zombia/.pic={
 \parindent=0pt
 
 \begin{document}
-%%2017NewYear
+%%2018NewYear
 %% 16:9
 \begin{tikzpicture}
 \coordinate (Jamaica) at (-8,-4);
@@ -136,18 +136,7 @@ zombia/.pic={
 \draw (0,0) circle [radius=0.2cm];
 \end{pgfonlayer}
 
-%%background Layer
-\begin{pgfonlayer}{background}
-\fill [yellow!40!red!20!white] (-8,-4) rectangle (8,5);
-\coordinate (suncenter) at (0,1 -| Jamaica);
-\pgfmathsetmacro{\sunradius}{3};
-\pgfmathsetmacro{\nolight}{7};
-\shade [inner color=yellow, outer color=yellow!40!red!20!white] (suncenter) circle [radius=\nolight cm];
-\path [fill=red!20!yellow] (suncenter) circle [radius=\sunradius cm];
-\end{pgfonlayer}
-
-
-%%Main Layer
+%%Main Layer (pre-background in order to mark the suncenter)
 \begin{pgfonlayer}{main}
 
 %\draw[line width=10pt] plot[smooth cycle] coordinates{(1,1) (-1,1) (-1,-1) (1,-1)}--cycle;
@@ -171,9 +160,20 @@ zombia/.pic={
 \draw[thick,line cap=round] (0,0.6) -- +(130:0.2);
 \draw[thick,line cap=round] (0,0.6) -- +(100:0.2);
 %%%Light
-\draw[draw=none,fill=yellow] (-1.3,-0.1) circle[radius=0.09];
+\coordinate (suncenter) at (-1.3,-0.1);
+\draw[draw=none,fill=red!50!orange] (suncenter) circle[radius=0.09];
 \end{scope}
+\end{pgfonlayer}
 
+%%background Layer
+\begin{pgfonlayer}{background}
+\fill [red!30!blue!20!black] (-8,-4) rectangle (8,5);
+\pgfmathsetmacro{\nolight}{3.5};
+\shade [inner color=yellow, outer color=yellow!20!white!40!transparent] (suncenter) circle [radius=\nolight cm];
+\end{pgfonlayer}
+
+%%Main Layer (main)
+\begin{pgfonlayer}{main}
 %%Tortuga
 \draw[fill=TortugaColor] decorate[decoration={name=random steps}] {(0,-1-|Dominican) ellipse [x radius=5cm, y radius=1.3cm]};
 %%Sea
@@ -188,38 +188,7 @@ zombia/.pic={
 \pic[rotate=\ang] at (\ang:1) {totu};
 }
 \end{scope}
-%%C20 union Paley 17
-%% \begin{scope}[thick, every node/.style={draw,circle,inner sep=1pt}]
-%% %%C20
-%%   \foreach \i in {0,...,19}{
-%%     \pgfmathsetmacro{\ang}{\i*18}
-%%     \node (c\i) at (\ang:1.7) {};
-%%   }
-%%   \foreach \i in {0,...,19}{
-%%     \pgfmathsetmacro{\iplusone}{int(mod(\i+1,20))}
-%%     \draw (c\i)--(c\iplusone);
-%%   }
-%% %%Paley17
-%%   \foreach \i in {0,...,16}{
-%%     \pgfmathsetmacro{\ang}{\i*360/17}
-%%     \node (p\i) at (\ang:1.5) {};
-%%   }
-%%   \foreach \gen in {1,2,4,8}{
-%%     \pgfmathsetmacro{\type}{\gen==1? "":"bend left"}
-%%     \foreach \i in {0,...,16}{
-%%       \pgfmathsetmacro{\inext}{int(mod(\i+\gen,17))}
-%%       \path[\type] (p\i) edge (p\inext);
-%%     }
-%%   }
-%% \end{scope}
-%%Captions
-\node at (0,-2) {$\cup$};
-\node[left] (C20) at (-0.3,-2) {Cycle($20$)};
-\node[right] (P17) at (0.3,-2) {Paley($17$)};
-\node[left,align=right] (normalizedL) at (-0.3,-3.3) {\it Normalized Laplacian\\\it spectrum not unique!};
-\node[right] (inertiabound) at (0.3,-3.3) {\it Inertia bound not tight!};
-\draw[-triangle 45] (normalizedL.north) to[bend right] (C20.south);
-\draw[-triangle 45] (inertiabound.north) to[bend left] (P17.south);
+
 
 %% \begin{scope}
 %% \clip (1.8,-0.5) rectangle (TurksCaicos);
