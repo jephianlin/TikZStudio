@@ -48,6 +48,19 @@
 \pgfdeclarelayer{beta}
 \pgfsetlayers{background,alpha,main,beta}
 
+%%pic TaiJi
+\tikzset{
+TaiJi/.pic={
+\begin{scope}[thick,yi/.style={radius=0.4cm}]
+\shade [draw=black] (0,0) circle [radius =3];
+\shade [top color=black, bottom color=black!50,draw=black] (0,-3) arc [radius=3, start angle=-90, end angle=90]
+arc [radius=1.5, start angle=90, end angle=270]
+arc [radius=1.5, start angle=90, end angle=-90];
+\draw[thin,fill=black] (0,-1.5) circle [yi];
+\draw[thin,fill=white] (0,1.5) circle [yi];
+\end{scope}
+}}
+
 %%pic Totu
 \tikzset{
 totu/.pic={
@@ -68,7 +81,7 @@ totu/.pic={
 %%pic Rescuer
 \tikzset{
 Rescuer/.pic={
-\begin{scope}[shift={(0.5,-2)}]
+\begin{scope}[shift={(6.35,1.2)}]
 \draw[fill=black!20!red!60!yellow] (-7,-0.8) -- (-6.7,-1.2) -- (-6,-1.2) -- (-5.7,-0.8) .. controls +(-0.3,-0.1) and +(0.3,-0.1) ..  cycle;
 \end{scope}
 }}
@@ -170,6 +183,9 @@ zombia/.pic={
 \fill [red!30!blue!20!black] (-8,-4) rectangle (8,5);
 \pgfmathsetmacro{\nolight}{3.5};
 \shade [inner color=yellow, outer color=yellow!20!white!40!transparent] (suncenter) circle [radius=\nolight cm];
+\shade [inner color=orange, outer color=yellow!80!transparent] (suncenter) circle [radius=1 cm];
+%%SatanHeart
+\pic[scale=1,opacity=0.1] at (suncenter) {SatanHeart};
 \end{pgfonlayer}
 
 %%Main Layer (main)
@@ -180,15 +196,34 @@ zombia/.pic={
 \draw[fill=blue!40,name path=sealevel] decorate[decoration={name=random steps}] {(0,-1 -| Jamaica) -- (0,-1 -| Dominican)} -- (Dominican) -- (Jamaica) -- cycle;
 %%StoneGate
 \pic[scale=0.4,yslant=-0.2] at (6,0) {stonegate};
-%%SatanHeart
-\pic[scale=0.5] at (5.5,-2.5) {SatanHeart};
+%%Rescuer going home
+\pic at (7.3,-4.3) {Rescuer}; 
 %%totus swimming
-\begin{scope}[xshift=5.5cm, yshift=-2.5cm]
-\foreach \ang in {54,126,198,270,342}{
-\pic[rotate=\ang] at (\ang:1) {totu};
+\foreach \i in {0,1,2}{
+\pgfmathsetmacro{\x}{4.5+0.5*\i}
+\pgfmathsetmacro{\y}{-3.5+1*\i}
+\pic[rotate=150] at (\x,\y) {totu};
 }
-\end{scope}
+\foreach \i in {0,1}{
+\pgfmathsetmacro{\x}{5.5+0.5*\i}
+\pgfmathsetmacro{\y}{-3.3+1*\i}
+\pic[rotate=150] at (\x,\y) {totu};
+}
+%%TaiJi
+\pic[rotate=-30,scale=0.1] at (6.5,-1.3) {TaiJi};
 
+%%Crux
+\begin{scope}[shift={(-6,3)},rotate=230,scale=0.8,every node/.style={minimum size=2mm, inner sep=0, circle, shade, inner color=white, outer color=blue}]
+\node (sc1) at (-1,0) {};
+\node (sc2) at (100:1.1) {};
+\node (sc3) at (0,0) {};
+\node (sc4) at (280:1.2) {};
+\node (sc5) at (1,0) {};
+\node (sc6) at (2,0) {};
+
+\draw[gray!40!white] (sc1) -- (sc3) -- (sc5) -- (sc6);
+\draw[gray!40!white] (sc2) -- (sc3) -- (sc4);
+\end{scope}
 
 %% \begin{scope}
 %% \clip (1.8,-0.5) rectangle (TurksCaicos);

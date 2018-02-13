@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.12.18)  11 FEB 2018 18:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.12.18)  12 FEB 2018 21:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -832,19 +832,19 @@ File: pgflibrarycurvilinear.code.tex 2015/05/14 v3.0.1a (rcs-revision 1.4)
  (./2018DogNewYear.aux)
 \openout1 = `2018DogNewYear.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Try loading font information for OT1+pplx on input line 122
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 135.
+LaTeX Font Info:    ... okay on input line 135.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 135
 .
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1pplx.fd
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
@@ -909,37 +909,37 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 122.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 135.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/pplx/m/n on input line 122.
+(Font)                  OT1/cmr/m/n --> OT1/pplx/m/n on input line 135.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/b/n --> OT1/pplx/m/n on input line 122.
+(Font)                  OT1/cmr/b/n --> OT1/pplx/m/n on input line 135.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/pplx/m/n --> OT1/pplx/bx/n on input line 122.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 122.
+(Font)                  OT1/pplx/m/n --> OT1/pplx/bx/n on input line 135.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/b/n --> OT1/pplx/bx/n on input line 122.
+(Font)                  OT1/cmr/b/n --> OT1/pplx/bx/n on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/b/n --> OT1/pplx/bx/n on input line 122.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 122.
+(Font)                  OT1/cmr/b/n --> OT1/pplx/bx/n on input line 135.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 122.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/m/n on input line 122.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 122.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/m/n on input line 135.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/pplx/m/it on input line 122.
+(Font)                  OT1/cmr/m/it --> OT1/pplx/m/it on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/b/it --> OT1/pplx/m/it on input line 122.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 122.
+(Font)                  OT1/cmr/b/it --> OT1/pplx/m/it on input line 135.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 122.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/b/n --> OT1/cmtt/m/n on input line 122.
+(Font)                  OT1/cmtt/b/n --> OT1/cmtt/m/n on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 122.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 135.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/pplx/m/it --> OT1/pplx/bx/it on input line 122.
+(Font)                  OT1/pplx/m/it --> OT1/pplx/bx/it on input line 135.
 
 ABD: EveryShipout initializing macros
 Missing character: There is no ; in font nullfont!
@@ -947,20 +947,20 @@ Missing character: There is no ; in font nullfont!
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./2018DogNewYear.aux) ) 
 Here is how much of TeX's memory you used:
- 23137 strings out of 492985
- 487627 string characters out of 6138637
- 514372 words of memory out of 5000000
- 26393 multiletter control sequences out of 15000+600000
+ 23217 strings out of 492985
+ 489034 string characters out of 6138637
+ 523604 words of memory out of 5000000
+ 26473 multiletter control sequences out of 15000+600000
  532192 words of font info for 26 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,68p,10412b,1283s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,8n,68p,10412b,1279s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/
 usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/t
 ype1/urw/palatino/uplri8a.pfb>
-Output written on 2018DogNewYear.pdf (1 page, 15791 bytes).
+Output written on 2018DogNewYear.pdf (1 page, 18416 bytes).
 PDF statistics:
- 18 PDF objects out of 1000 (max. 8388607)
- 12 compressed objects within 1 object stream
+ 26 PDF objects out of 1000 (max. 8388607)
+ 16 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 19 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
