@@ -145,8 +145,8 @@ zombia/.pic={
 
 %%Help Lines
 \begin{pgfonlayer}{beta}
-\draw [step=1, black!50, thin] (Jamaica) grid (TurksCaicos);
-\draw (0,0) circle [radius=0.2cm];
+%\draw [step=1, black!50, thin] (Jamaica) grid (TurksCaicos);
+%\draw (0,0) circle [radius=0.2cm];
 \end{pgfonlayer}
 
 %%Main Layer (pre-background in order to mark the suncenter)
@@ -211,7 +211,6 @@ zombia/.pic={
 }
 %%TaiJi
 \pic[rotate=-30,scale=0.1] at (6.5,-1.3) {TaiJi};
-
 %%Crux
 \begin{scope}[shift={(-6,3)},rotate=230,scale=0.8,every node/.style={minimum size=2mm, inner sep=0, circle, shade, inner color=white, outer color=blue}]
 \node (sc1) at (-1,0) {};
@@ -224,57 +223,78 @@ zombia/.pic={
 \draw[gray!40!white] (sc1) -- (sc3) -- (sc5) -- (sc6);
 \draw[gray!40!white] (sc2) -- (sc3) -- (sc4);
 \end{scope}
+\node[rectangle,draw=none,text=white,align=center,right] at (-7.5,1) {\tiny all four Grundy domination\\ \tiny type parameters are distinct};
 
-%% \begin{scope}
-%% \clip (1.8,-0.5) rectangle (TurksCaicos);
-%% \draw[very thick] (1.8,1.7) -- (4.4,3.2) to[bend right] (4.55,4.37); 
-%%ThuderBirdWing
-%% \begin{scope}[xshift=0.5cm,yshift=1cm, rotate=30,xslant=-0.5]
-%%StraightFeather
-%% \foreach \i in {0,...,4}{
-%% \pgfmathsetmacro{\newx}{\i*0.9}
-%% \begin{scope}[xshift=\newx cm,xscale=0.8]
-%%   \draw[draw=none,rounded corners, fill=Totemred] (0,-0.3) -- (0.2,-0.6) -- (0.8,-0.6) -- (1,-0.3) -- (0.8,-0.5) -- (0.2,-0.5) -- cycle;
-%%   \draw[draw=none,rounded corners, fill=black] (0,-0.7) -- (0.2,-1) -- (0.8,-1) -- (1,-0.7) -- (0.8,-0.9) -- (0.2,-0.9) -- cycle;
-%%   \draw[draw=none,rounded corners, fill=Totemblue] (0,-1.1) -- (0.2,-1.4) -- (0.8,-1.4) -- (1,-1.1) -- (0.8,-1.3) -- (0.2,-1.3) -- cycle;
-%%   \draw[draw=none, rounded corners, fill=Totemblue] (0.2,-1.35) -- (0.2,-1.5) -- (0.5,-1.5) -- (0.5,-1.8) -- (0.8,-1.8) -- (0.8,-1.35);  
-%%   \draw[rounded corners,very thick, fill=black] (0,0) -- (0,-1.7) -- (0.2,-2) -- (0.8,-2) -- (1,-1.7) -- (1,0) -- (1,-1.7) -- (0.8,-1.9) -- (0.2,-1.9) -- (0,-1.7) -- cycle;
-%% \end{scope}
-%% }
-%% \end{scope} %%Straightpart
-%%%Morphed feather
-%% {\pgfsetcurvilinearbeziercurve
-%%   {\pgfpointadd{\pgfpointpolar{-34}{2cm}}{\pgfpoint{37mm}{38mm}}}
-%%   {\pgfpointadd{\pgfpointpolar{-4}{2.3cm}}{\pgfpoint{37mm}{38mm}}}
-%%   {\pgfpointadd{\pgfpointpolar{26}{2.3cm}}{\pgfpoint{37mm}{38mm}}}
-%%   {\pgfpointadd{\pgfpointpolar{56}{2cm}}{\pgfpoint{37mm}{38mm}}}
-%%   \makeatletter
-%% \pgftransformnonlinear{\pgfpointcurvilinearbezierorthogonal\pgf@x\pgf@y}%
-%% \makeatother
-%% %\draw (0,-1) grid (3,1);
-%% \foreach \i in {0,1,2}{
-%% \pgfmathsetmacro{\newx}{0.9*\i}
-%% \begin{scope}[xshift=\newx cm,yshift=1cm,xscale=0.8] %%Beforemorph
-%% \draw[draw=none,rounded corners, fill=Totemred] (0,-0.3) -- (0.2,-0.6) -- (0.8,-0.6) -- (1,-0.3) -- (0.8,-0.5) -- (0.2,-0.5) -- cycle;
-%%   \draw[draw=none,rounded corners, fill=black] (0,-0.7) -- (0.2,-1) -- (0.8,-1) -- (1,-0.7) -- (0.8,-0.9) -- (0.2,-0.9) -- cycle;
-%%   \draw[draw=none,rounded corners, fill=Totemblue] (0,-1.1) -- (0.2,-1.4) -- (0.8,-1.4) -- (1,-1.1) -- (0.8,-1.3) -- (0.2,-1.3) -- cycle;
-%%   \draw[draw=none, rounded corners, fill=Totemblue] (0.2,-1.35) -- (0.2,-1.5) -- (0.5,-1.5) -- (0.5,-1.8) -- (0.8,-1.8) -- (0.8,-1.35);  
-%%   \draw[rounded corners,very thick, fill=black] (0,0) -- (0,-1.7) -- (0.2,-2) -- (0.8,-2) -- (1,-1.7) -- (1,0) -- (1,-1.7) -- (0.8,-1.9) -- (0.2,-1.9) -- (0,-1.7) -- cycle;
-%%   \draw[draw=none,fill=Totemred] (0.3,-1.7) circle[radius=1mm];
-%% \end{scope} %%Beforemorph
-%% }}
-%% \end{scope} %%Clip
+%%ArchLinux
+\node[rectangle, draw=none,left,opacity=0.1,text=white] at (-5.9,4.5) {Switched to};
+\node[rectangle, draw=none,right,opacity=0.1] at (-6.2,4.5) {\includegraphics[scale=0.1]{archlinux-logo-dark}}; 
+
+%%Tanglegram
+\begin{scope}[every node/.style={circle,fill=white,inner sep=2pt}, every path/.style={thick,white}]
+%%%LeftBinaryTree
+\begin{scope}[xshift=-2cm,rotate=-45]
+\node (l1) at (0,2) {};
+\node (l2) at (0.5,1.5) {};
+\node (l3) at (1,1) {};
+\node (l4) at (1.5,0.5) {};
+\node (l5) at (2,0) {};
+\coordinate (lr) at (0,0) {};
+\draw (l1) -- (lr) -- (l5);
+\draw (l2) -- (l2-| lr);
+\draw (l3) -- (l3-| lr);
+\draw (l4) -- (l4-| lr);
+\draw (l5) -- (l5-| lr);
+\end{scope}
+%%%RightBinaryTree
+\begin{scope}[xshift=2cm,rotate=135]
+\node (r5) at (0,2) {};
+\node (r4) at (0.5,1.5) {};
+\node (r3) at (1,1) {};
+\node (r2) at (1.5,0.5) {};
+\node (r1) at (2,0) {};
+\coordinate (rr) at (0,0) {};
+\draw (r1) -- (rr) -- (r5);
+\draw (r2) -- (r2-| rr);
+\draw (r3) -- (r3-| rr);
+\draw (r4) -- (r4-| rr);
+\draw (r5) -- (r5-| rr);
+\end{scope}
+\draw (l1) -- (r1);
+\draw (l2) -- (r4);
+\draw (l3) -- (r2);
+\draw (l4) -- (r3);
+\draw (l5) -- (r5);
+\end{scope}
+\node[align=center] at (0,-2.5) {an edge changes the\\
+tanglegram crossing number\\
+by at most one,\\
+since {\it People never lies}.};
 \end{pgfonlayer}
 
 
 %%beta layer
 \begin{pgfonlayer}{beta}
 
-
-
 %%Happy New Math Year
 %\node[red!80!yellow] at (1,2.2) {\Huge \it Happy New Math Year 2017};
 %\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2017}}] (160:2) arc (160:80:2) to[bend right] (4,4);
+\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2018}}] (-3.5,1) .. controls (-1,4) and (1,1) .. (3.5,4);
+
+%%Month code
+
+\node[above] at (-6.5,-1.9) {2018 month code};
+\node[scale=0.7,below] at (-6.5,-1.8) {\begin{tabular}{cccc} 
+Jan & Feb & Mar & Apr \\
+ 0 & 3 & 3 & 6 \\
+\hline
+May & Jun & Jul & Aug \\
+ 1 & 4 & 6 & 2 \\
+\hline
+Sept & Oct & Nov & Dec \\
+ 5 & 0 & 3 & 5 \\
+\end{tabular}};
+\node[scale=0.5,above] at (-6.5,-4) {$(\text{code}+\text{date})\mathbin{\%}7=\text{day of week}$};
+
 
 %%Signature
 \node[yshift=0.3cm,left] at (Dominican) {\it Jephian};
