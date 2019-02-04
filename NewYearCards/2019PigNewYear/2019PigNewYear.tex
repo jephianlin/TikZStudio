@@ -279,7 +279,7 @@ family/.pic={
 \pic[xscale=0.85] at (1.1,0) {family};
 \end{scope}
 
-%%% Upper right turtle shell
+%%% Upper right turtle shell (this is quite unfortunate method to reflect the graph...)
 \begin{scope}[black]
 \pgfsetcurvilinearbeziercurve
 {\pgfpointpolar{60}{2cm}}
@@ -321,6 +321,63 @@ family/.pic={
 \pic[xscale=-0.9,yscale=-1] at (1.3,0) {family};
 \end{scope}
 
+\node[align=center] at (0,-3.2) {Every CP graph with the same input parameters\\ has the same distance determinant};
+
+%%% Math and Computer 
+\node[draw=none,opacity=0] at (0,0) {Mathematics};
+\draw[decorate,decoration={raise=3pt, text along path, text={|\color{white}\scriptsize |computer}}] (-2.8,0) -- (-2.9,1.1);
+
+%%% C8: with edge asteroid
+\begin{scope}[every node/.style={circle, draw, inner sep=2pt, fill=none}, line width=1pt, shift={(6,2)}, scale=0.5, transform shape]
+\node[label={above:$r_1$}] (r1) at (90:2.5) {};
+\node[label={left:$r_2$}] (r2) at (180:2.5) {};
+\node[label={below:$r_3$}] (r3) at (270:2.5) {};
+\node[label={right:$r_4$}] (r4) at (0:2.5) {};
+\node[label={left:$c_1$}] (c1) at (135:2.5) {};
+\node[label={left:$c_2$}] (c2) at (225:2.5) {};
+\node[label={right:$c_3$}] (c3) at (315:2.5) {};
+\node[label={right:$c_4$}] (c4) at (45:2.5) {};
+\draw (r1) -- (c1) -- (r2) -- (c2) -- (r3) -- (c3) -- (r4) -- (c4) -- (r1);
+
+\draw[thick,orange] (r1) --node[midway,draw=none,fill=white] {0} (c1);
+\draw[thick,orange] (r2) --node[midway,draw=none,fill=white] {1} (c2);
+\draw[thick,orange] (c2) --node[midway,draw=none,fill=white] {2} (r3);
+\draw[thick,orange] (c3) --node[midway,draw=none,fill=white] {3} (r4);
+\draw[thick,orange] (r4) --node[midway,draw=none,fill=white] {4} (c4);
+
+\foreach \x/\y in {r1/r3,c1/c3,r1/r4,c1/c3,r2/r4,c2/c4,r3/r4,c2/c4,r3/r1}{
+\draw[red,->] (\x) -- (\y);
+}
+\end{scope}
+
+\node[align=center] at (6,0) {\tiny Graph with edge asteroid\\ \tiny is not comparability bigraph}; 
+
+%%% C6: without edge asteroid
+\begin{scope}[white, every node/.style={circle, draw, inner sep=2pt, fill=none}, line width=1pt, shift={(-6,2)}, scale=0.5, transform shape]
+\node[label={above:$r_1$}] (r1) at (90:2.5) {};
+\node[label={left:$r_2$}] (r2) at (210:2.5) {};
+\node[label={right:$r_3$}] (r3) at (330:2.5) {};
+\node[label={left:$c_1$}] (c1) at (150:2.5) {};
+\node[label={below:$c_2$}] (c2) at (270:2.5) {};
+\node[label={right:$c_3$}] (c3) at (30:2.5) {};
+\draw (r1) -- (c1) -- (r2) -- (c2) -- (r3) -- (c3) -- (r1);
+
+\foreach \x/\y in {r1/r3,c1/c2}{
+\draw[red,->] (\x) -- (\y);
+}
+\foreach \x/\y in {r1/r2,c3/c2}{
+\draw[green,->] (\x) -- (\y);
+}
+\foreach \x/\y in {r2/r3,c1/c3}{
+\draw[yellow,->] (\x) -- (\y);
+}
+
+\end{scope}
+
+\node[align=center] at (-6,0) {\tiny\color{white} Graph without edge asteroid\\ \tiny\color{white} is comparability bigraph}; 
+
+%%% gratitude
+\node[yshift=1.5cm, xshift=-0.3cm, left,align=right] at (Dominican) {\it\small My sincere gratitude\\ \it\small to my friends\\ \it\small and whose visited me\\ \it\small in Victoria};
 
 
 \end{pgfonlayer}
@@ -330,7 +387,7 @@ family/.pic={
 \begin{pgfonlayer}{beta}
 
 %%Happy New Math Year
-%\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2019}}] (-3.5,0.5) .. controls (-1,3.5) and (1,0.5) .. (3.5,3.5);
+\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2019}}] (-3.5,2.5) .. controls (-1,4.5) and (1,4.5) .. (3.5,2.5);
 
 
 %%Month code
@@ -387,4 +444,4 @@ Sept & Oct & Nov & Dec \\
 }
 \makeatother
 
-NSYSU
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.1.30)  4 FEB 2019 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.1.30)  4 FEB 2019 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -666,28 +666,28 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/pplx/m/it --> OT1/pplx/bx/it on input line 163.
 
 ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+zeur on input line 338.
+LaTeX Font Info:    Try loading font information for U+zeur on input line 332.
 
 (/usr/share/texmf-dist/tex/latex/eulervm/uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 )
-LaTeX Font Info:    Try loading font information for U+zeus on input line 338.
+LaTeX Font Info:    Try loading font information for U+zeus on input line 332.
 
 (/usr/share/texmf-dist/tex/latex/eulervm/uzeus.fd
 File: uzeus.fd 2005/01/11 v4.0 (WaS)
 )
-LaTeX Font Info:    Try loading font information for U+zeuex on input line 338.
+LaTeX Font Info:    Try loading font information for U+zeuex on input line 332.
 
 
 (/usr/share/texmf-dist/tex/latex/eulervm/uzeuex.fd
 File: uzeuex.fd 2005/01/11 v4.0 (WaS)
 )
-LaTeX Font Info:    Try loading font information for U+eus on input line 338.
+LaTeX Font Info:    Try loading font information for U+eus on input line 332.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 )
-LaTeX Font Info:    Try loading font information for U+euex on input line 338.
+LaTeX Font Info:    Try loading font information for U+euex on input line 332.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/ueuex.fd
 File: ueuex.fd 2013/01/14 v3.01 Euler extra symbols
@@ -695,22 +695,23 @@ File: ueuex.fd 2013/01/14 v3.01 Euler extra symbols
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./2019PigNewYear.aux) ) 
 Here is how much of TeX's memory you used:
- 14862 strings out of 492639
- 312427 string characters out of 6135497
- 427038 words of memory out of 5000000
- 18429 multiletter control sequences out of 15000+600000
- 12982 words of font info for 43 fonts, out of 8000000 for 9000
+ 15044 strings out of 492639
+ 315601 string characters out of 6135497
+ 456818 words of memory out of 5000000
+ 18601 multiletter control sequences out of 15000+600000
+ 18700 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,68p,473b,962s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,10n,68p,473b,1358s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/
 usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/t
 ype1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/euler/eurm10.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr
-8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on 2019PigNewYear.pdf (1 page, 43520 bytes).
+/amsfonts/euler/eurm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/e
+uler/eurm7.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr
+/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on 2019PigNewYear.pdf (1 page, 58448 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 34 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  19 words of extra memory for PDF output out of 10000 (max. 10000000)
 
