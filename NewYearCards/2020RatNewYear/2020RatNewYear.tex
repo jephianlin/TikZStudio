@@ -315,13 +315,23 @@ $};
 -8 & -9.18 \\
 \end{bmatrix}
 $};
+%%% Layer 5
+\node[rectangle,draw=none,above,scale=0.6,transform shape] at (0,2.4) {$
+\begin{bmatrix}
+x & z \\
+z & y \\
+\end{bmatrix},
+\ z\neq 0
+$};
 
 %%Find a matrix
 \draw[decorate,decoration={text along path,text={|\color{white}|Can you find a matrix with two eigenvalues $1$ and $3$?}}] (145:4.667cm and 3.3cm) arc (145:35:4.667cm and 3.3cm);
 
-%\draw[decorate,decoration={text along path, text={|\color{yellow!30!transparent} \scriptsize |Raven brought light}}] ([shift={(180:3.5)}] suncenter) arc (180:120:3.5);
+%% z = 0
+\node[rectangle, draw=none, right] at (6,-0.3) {$z=0$};
 
-
+%% x + y = 4
+\node[rectangle, draw=none, below] at (0,-4) {You are looking at the plane $x + y = 4$.};
 
 \end{scope}
 %%% start yshift=0.5cm
