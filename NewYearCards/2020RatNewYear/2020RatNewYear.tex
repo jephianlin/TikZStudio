@@ -173,8 +173,8 @@ family/.pic={
 
 %%Help Lines
 \begin{pgfonlayer}{beta}
-\draw [step=1, black!50, thin] (Jamaica) grid (TurksCaicos);
-\draw (0,0) circle [radius=0.2cm];
+%\draw [step=1, black!50, thin] (Jamaica) grid (TurksCaicos);
+%\draw (0,0) circle [radius=0.2cm];
 \end{pgfonlayer}
 
 %%background Layer
@@ -333,6 +333,20 @@ $};
 %% x + y = 4
 \node[rectangle, draw=none, below] at (0,-4) {You are looking at the plane $x + y = 4$.};
 
+%% Parametrization
+\node[rectangle, draw=none] at ([shift={(-2.5,-1)}]TurksCaicos) {$
+\left\{\begin{aligned}
+x &= 2 - \cos t \\
+y &= 2 + \cos t \\
+z &= \sin t
+\end{aligned}\right.
+$};
+
+%% Three points
+\node[circle, fill, draw=none, inner sep=1.5pt, label={[scale=0.6]above:$\begin{bmatrix}2&-1\\-1&2\end{bmatrix}$}] at (270:5.6568cm and 4cm) {};
+\node[circle, fill, draw=none, inner sep=1.5pt, label={[scale=0.6]95:$\begin{bmatrix}3&0\\0&1\end{bmatrix}$}] at (180:5.6568cm and 4cm) {};
+\node[circle, fill, draw=none, inner sep=1.5pt, label={[scale=0.6]135:$\begin{bmatrix}2.5&\sqrt{3}/2\\\sqrt{3}/2&1.5\end{bmatrix}$}] at (120:5.6568cm and 4cm) {};
+
 \end{scope}
 %%% start yshift=0.5cm
 
@@ -350,16 +364,16 @@ $};
 \node[rectangle, draw=none, opacity=0] at (0,-0.5) {\Huge\tt FREE HONG KONG};
 
 %%Month code
-\node[above] at (-6.5,-1.9) {2019 month code};
+\node[above] at (-6.5,-1.9) {2020 month code};
 \node[scale=0.7,below] at (-6.5,-1.8) {\begin{tabular}{cccc} 
 Jan & Feb & Mar & Apr \\
- 1 & 4 & 4 & 0 \\
+ 2 & 5 & 6 & 2 \\
 \hline
 May & Jun & Jul & Aug \\
- 2 & 5 & 0 & 3 \\
+ 4 & 0 & 2 & 5 \\
 \hline
 Sept & Oct & Nov & Dec \\
-6 & 1 & 4 & 6 \\
+ 1 & 3 & 6 & 1 \\
 \end{tabular}};
 \node[scale=0.5,above] at (-6.5,-4) {$(\text{code}+\text{date})\mathbin{\%}7=\text{day of week}$};
 
