@@ -2,6 +2,7 @@
 
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{tikz}
+\usetikzlibrary{arrows}
 \usetikzlibrary{external}
 \tikzexternalize[prefix=figures/]
 
@@ -12,6 +13,10 @@ every label/.style={rectangle, draw=none}
 
 \begin{document}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\verb|shortestAB|
+
+\tikzsetnextfilename{shortestAB}
 \begin{tikzpicture}
 \node[label={left:$A$}] (0)  at (0,0) {};
 \node (1)  at (1,1) {};
@@ -28,11 +33,118 @@ every label/.style={rectangle, draw=none}
 \draw (2) --node[midway,below,draw=none] {$6$} (4);
 \draw (3) --node[midway,above,draw=none] {$8$} (5);
 \draw (4) --node[midway,below,draw=none] {$7$} (5);
-
 \end{tikzpicture}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\verb|tickets-directed|
+
+\tikzsetnextfilename{tickets-directed}
+\begin{tikzpicture}
+\node [rectangle] (YVR) at (-1,1) {YVR};
+\node [rectangle] (DSM) at (-1,-1) {DSM};
+\node [rectangle] (SEA) at (0,0) {SEA};
+\node [rectangle] (ICN) at (1,1) {ICN};
+\node [rectangle] (NRT) at (1,-1) {NRT};
+\node [rectangle] (TPE) at (3,1) {TPE};
+\node [rectangle] (KHH) at (3,-1) {KHH};
+
+\draw[-triangle 45] (YVR.south) -- (SEA.north);
+\draw[-triangle 45] (SEA.south) -- (NRT.north);
+\draw[-triangle 45] (NRT.east) -- (KHH.west);
+\draw[-triangle 45] (KHH.north) -- (ICN.south);
+\draw[-triangle 45] (ICN.south) -- (NRT.north);
+\draw[-triangle 45] (NRT.north) -- (TPE.south);
+\draw[-triangle 45] (TPE.west) -- (ICN.east);
+\draw[-triangle 45] (ICN.south) -- (SEA.north);
+\draw[-triangle 45] (SEA.south) -- (DSM.north);
+\draw[-triangle 45] (DSM.north) -- (YVR.south);
+\end{tikzpicture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\verb|tickets-directed-imp|
+
+\tikzsetnextfilename{tickets-directed-imp}
+\begin{tikzpicture}
+\node [rectangle] (YVR) at (-1,1) {YVR};
+\node [rectangle] (DSM) at (-1,-1) {DSM};
+\node [rectangle] (SEA) at (0,0) {SEA};
+\node [rectangle] (ICN) at (1,1) {ICN};
+\node [rectangle] (NRT) at (1,-1) {NRT};
+\node [rectangle] (TPE) at (3,1) {TPE};
+\node [rectangle] (KHH) at (3,-1) {KHH};
+
+\draw[-triangle 45] (YVR.south) -- (SEA.north);
+\draw[-triangle 45] (SEA.south) -- (NRT.north);
+\draw[-triangle 45] (NRT.east) -- (KHH.west);
+\draw[-triangle 45] (KHH.north) -- (ICN.south);
+\draw[-triangle 45] (ICN.south) -- (NRT.north);
+\draw[-triangle 45] (NRT.north) -- (TPE.south);
+\draw[-triangle 45] (TPE.west) -- (ICN.east);
+\draw[-triangle 45] (ICN.south) -- (SEA.north);
+\draw[-triangle 45] (SEA.south) -- (DSM.north);
+\draw[-triangle 45] (DSM.north) -- (YVR.south);
+\draw[-triangle 45,red] (TPE.west) -- (SEA.east);
+\draw[-triangle 45,red] (YVR.east) -- (ICN.west);
+\end{tikzpicture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\verb|tickets-simple|
+
+\tikzsetnextfilename{tickets-simple}
+\begin{tikzpicture}
+\node [rectangle] (YVR) at (-1,1) {YVR};
+\node [rectangle] (DSM) at (-1,-1) {DSM};
+\node [rectangle] (SEA) at (0,0) {SEA};
+\node [rectangle] (ICN) at (1,1) {ICN};
+\node [rectangle] (NRT) at (1,-1) {NRT};
+\node [rectangle] (TPE) at (3,1) {TPE};
+\node [rectangle] (KHH) at (3,-1) {KHH};
+
+\draw (YVR.south) -- (SEA.north);
+\draw (SEA.south) -- (NRT.north);
+\draw (NRT.east) -- (KHH.west);
+\draw (KHH.north) -- (ICN.south);
+\draw (ICN.south) -- (NRT.north);
+\draw (NRT.north) -- (TPE.south);
+\draw (TPE.west) -- (ICN.east);
+\draw (ICN.south) -- (SEA.north);
+\draw (SEA.south) -- (DSM.north);
+\draw (DSM.north) -- (YVR.south);
+\end{tikzpicture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\verb|tickets-simple-imp|
+
+\tikzsetnextfilename{tickets-simple-imp}
+\begin{tikzpicture}
+\node [rectangle] (YVR) at (-1,1) {YVR};
+\node [rectangle] (DSM) at (-1,-1) {DSM};
+\node [rectangle] (SEA) at (0,0) {SEA};
+\node [rectangle] (ICN) at (1,1) {ICN};
+\node [rectangle] (NRT) at (1,-1) {NRT};
+\node [rectangle] (TPE) at (3,1) {TPE};
+\node [rectangle] (KHH) at (3,-1) {KHH};
+
+\draw (YVR.south) -- (SEA.north);
+\draw (SEA.south) -- (NRT.north);
+\draw (NRT.east) -- (KHH.west);
+\draw (KHH.north) -- (ICN.south);
+\draw (ICN.south) -- (NRT.north);
+\draw (NRT.north) -- (TPE.south);
+\draw (TPE.west) -- (ICN.east);
+\draw (ICN.south) -- (SEA.north);
+\draw (SEA.south) -- (DSM.north);
+\draw (DSM.north) -- (YVR.south);
+\draw (TPE.west) -- (SEA.east);
+\draw (YVR.east) -- (ICN.west);
+\end{tikzpicture}
 
 \end{document}
 
 
 %%% compile by pdflatex --shell-escape filename.tex
+%%% then run ./pdf2png.sh *.pdf in figures/
