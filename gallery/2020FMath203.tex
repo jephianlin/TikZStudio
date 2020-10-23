@@ -143,6 +143,21 @@ every label/.style={rectangle, draw=none}
 \draw (YVR.east) -- (ICN.west);
 \end{tikzpicture}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\verb|twoptwo|
+
+\tikzsetnextfilename{twoptwo}
+\begin{tikzpicture}
+\node[label={left:$a$}] (a) at (0,0) {};
+\node[label={left:$b$}] (b) at (0,1) {};
+\node[label={right:$c$}] (c) at (1,0) {};
+\node[label={right:$d$}] (d) at (1,1) {};
+
+\draw (a) -- (b);
+\draw (c) -- (d);
+\end{tikzpicture}
+
 \end{document}
 
 
