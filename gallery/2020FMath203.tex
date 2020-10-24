@@ -158,6 +158,26 @@ every label/.style={rectangle, draw=none}
 \draw (c) -- (d);
 \end{tikzpicture}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\verb|labeledpetersen|
+
+\tikzsetnextfilename{labeledpetersen}
+\begin{tikzpicture}
+\foreach \i in {1,...,5} {
+\pgfmathsetmacro{\ang}{18 + \i*72}
+\pgfmathsetmacro{\pang}{108 + \i*72}
+\pgfmathsetmacro{\j}{int(\i + 5)}
+
+\node[label={\ang:$\i$}] (\i) at (\ang:3) {};
+\node[label={\pang:$\j$}] (\j) at (\ang:1.5) {};
+\draw (\i) -- (\j);
+}
+\draw (1) -- (2) -- (3) -- (4) -- (5) -- (1);
+\draw (6) -- (8) -- (10) -- (7) -- (9) -- (6);
+
+\end{tikzpicture}
+
 \end{document}
 
 
