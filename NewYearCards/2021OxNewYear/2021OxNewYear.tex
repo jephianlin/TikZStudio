@@ -180,15 +180,33 @@ family/.pic={
 
 %%background Layer
 \begin{pgfonlayer}{background}
-\shade [inner color=orange, outer color=red!70] (-8,-4) rectangle (8,5);
+%% \shade [inner color=orange, outer color=red!70] (-8,-4) rectangle (8,5);
+\shade [left color=orange, right color=red!70] (-8,-4) rectangle (8,5);
 \end{pgfonlayer} 
 
 
 %%Main Layer (main)
 \begin{pgfonlayer}{main}
 
-\node[rectangle,draw=red,inner sep=0,below] at ([xshift=5cm]Cuba) {\includegraphics[scale=0.5]{127.png}};
-\node[rectangle,draw=red,inner sep=0,below] at ([xshift=5cm]Cuba) {\includegraphics[scale=0.5]{511.png}};
+\node[rectangle,draw=none,inner sep=0,below] (l1) at ([xshift=1.5cm]Cuba) {\includegraphics[width=3cm]{127.png}};
+\node[below, inner sep=0] at ([yshift=-1.6cm]l1.center) {\tiny$k=127$};
+\node[rectangle,draw=none,inner sep=0,below] (l2) at ([xshift=5.5cm]Cuba) {\includegraphics[width=3cm]{183.png}};
+\node[below, inner sep=0] at ([yshift=-1.6cm]l2.center) {\tiny$k=183$};
+
+\node[rectangle,right,align=left] at ([yshift=-4.5cm]Cuba) {Zeros of the  $k$-th\\ 
+Laplacian eigenvectors\\
+of the $99\times 99$ grid\\
+with the center weight $10$.};
+
+
+\node[rectangle,draw=none,inner sep=0,below] (r1) at ([xshift=-1.5cm]TurksCaicos) {\includegraphics[width=3cm]{511.png}};
+\node[below, inner sep=0] at ([yshift=-1.6cm]r1.center) {\tiny$n,m=5,11$};
+\node[rectangle,draw=none,inner sep=0,below] (r2) at ([xshift=-5.5cm]TurksCaicos) {\includegraphics[width=3cm]{713.png}};
+\node[below, inner sep=0] at ([yshift=-1.6cm]r2.center) {\tiny$n,m=7,13$};
+
+\node[rectangle,left,align=right] at ([yshift=-4.5cm]TurksCaicos) {Zeros of \\ 
+$\cos(n\pi x)\cos(m\pi y)$\\
+$- \cos(n\pi y)\cos(m\pi x)$.};
 
 
 
@@ -207,7 +225,7 @@ family/.pic={
 
 %%Happy New Math Year
 %\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2020}}] (-3.5,-2.5) .. controls (-1,4.5) and (1,4.5) .. (3.5,-2.5);
-\node[rectangle, draw=none, red!50!yellow!20] at (0,-2) {\LARGE\it Happy New Math Year 2020};
+\node[rectangle, draw=none, red!50!yellow!20] at (0,-2) {\LARGE\it Happy New Math Year 2021};
 
 \node[rectangle, draw=none, opacity=0] at (0,-0.5) {\Huge\tt FREE HONG KONG};
 
@@ -271,8 +289,6 @@ Sept & Oct & Nov & Dec \\
     \pgfmathsetlength{\pgf@x}{\pgfmathresult pt}
 }
 \makeatother
-
-
 
 
 Chladni figures
