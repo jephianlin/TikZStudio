@@ -173,49 +173,84 @@ family/.pic={
 
 %%Help Lines
 \begin{pgfonlayer}{beta}
-\draw [step=1, black!50, thin] (Jamaica) grid (TurksCaicos);
-\draw (0,0) circle [radius=0.2cm];
+%% \draw [step=1, black!50, thin] (Jamaica) grid (TurksCaicos);
+%% \draw (0,0) circle [radius=0.2cm];
 \end{pgfonlayer}
 
 
 %%background Layer
 \begin{pgfonlayer}{background}
 %% \shade [inner color=orange, outer color=red!70] (-8,-4) rectangle (8,5);
-\shade [left color=orange, right color=red!70] (-8,-4) rectangle (8,5);
+%% \shade [left color=orange, right color=red!70] (-8,-4) rectangle (8,5);
+\shade [left color=red!70, right color=orange] (-8,-4) rectangle (8,5);
 \end{pgfonlayer} 
 
 
 %%Main Layer (main)
 \begin{pgfonlayer}{main}
 
+%%% Chladni figures
+\definecolor{pltgreen}{RGB}{0,68,27}
 \node[rectangle,draw=none,inner sep=0,below] (l1) at ([xshift=1.5cm]Cuba) {\includegraphics[width=3cm]{127.png}};
 \node[below, inner sep=0] at ([yshift=-1.6cm]l1.center) {\tiny$k=127$};
 \node[rectangle,draw=none,inner sep=0,below] (l2) at ([xshift=5.5cm]Cuba) {\includegraphics[width=3cm]{183.png}};
 \node[below, inner sep=0] at ([yshift=-1.6cm]l2.center) {\tiny$k=183$};
 
-\node[rectangle,right,align=left] at ([yshift=-4.5cm]Cuba) {Zeros of the  $k$-th\\ 
+\node[rectangle,right,align=left,pltgreen] at ([yshift=-4.5cm]Cuba) {Zeros of the  $k$-th\\ 
 Laplacian eigenvectors\\
 of the $99\times 99$ grid\\
 with the center weight $10$.};
 
-
+\definecolor{pltblue}{RGB}{34,119,179}
 \node[rectangle,draw=none,inner sep=0,below] (r1) at ([xshift=-1.5cm]TurksCaicos) {\includegraphics[width=3cm]{511.png}};
-\node[below, inner sep=0] at ([yshift=-1.6cm]r1.center) {\tiny$n,m=5,11$};
+\node[below, inner sep=0, pltblue] at ([yshift=-1.6cm]r1.center) {\tiny$n,m=5,11$};
 \node[rectangle,draw=none,inner sep=0,below] (r2) at ([xshift=-5.5cm]TurksCaicos) {\includegraphics[width=3cm]{713.png}};
-\node[below, inner sep=0] at ([yshift=-1.6cm]r2.center) {\tiny$n,m=7,13$};
+\node[below, inner sep=0, pltblue] at ([yshift=-1.6cm]r2.center) {\tiny$n,m=7,13$};
 
-\node[rectangle,left,align=right] at ([yshift=-4.5cm]TurksCaicos) {Zeros of \\ 
+\node[rectangle,left,align=right,pltblue] at ([yshift=-4.5cm]TurksCaicos) {Zeros of \\ 
 $\cos(n\pi x)\cos(m\pi y)$\\
 $- \cos(n\pi y)\cos(m\pi x)$.};
 
 
+%%% SSP graph
+\begin{scope}[yshift=-1cm, scale=0.8, 
+every node/.style={circle,draw=red,fill=red,inner sep=3pt}]
+\node (0) at (0,0) {};
+\foreach \i in {0,1,2} {
+  \pgfmathsetmacro{\ang}{0 + \i*120/4}
+  \pgfmathsetmacro{\ind}{int(1 + \i)}
+  \pgfmathsetmacro{\ip}{int(1 + \i)}
+  \node (\ind) at (\ang:\ip) {};
+}
+\foreach \i in {0,1,2,3} {
+  \pgfmathsetmacro{\ang}{120 + \i*120/5}
+  \pgfmathsetmacro{\ind}{int(4 + \i)}
+  \pgfmathsetmacro{\ip}{int(1 + \i)}
+  \node (\ind) at (\ang:\ip) {};
+}
+\foreach \i in {0,1,2,3,4} {
+  \pgfmathsetmacro{\ang}{240 + \i*120/6}
+  \pgfmathsetmacro{\ind}{int(8 + \i)}
+  \pgfmathsetmacro{\ip}{int(1 + \i)}
+  \node (\ind) at (\ang:\ip) {};
+}
+\draw[red] (0) -- (1) -- (2) -- (3);
+\draw[red] (0) -- (4) -- (5) -- (6) -- (7);
+\draw[red] (0) -- (8) -- (9) -- (10) -- (11) -- (12);
+
+\node[rectangle,draw=none,fill=none,red,align=center] at (-3.2,-2) {
+\footnotesize Every matrix of this graph\\
+\footnotesize has the strong spectral property.};
+\end{scope}
 
 
-%%Find a matrix
-%% \draw[decorate,decoration={text along path,text={|\color{white}|Can you find a matrix with two eigenvalues $1$ and $3$?}}] (145:4.667cm and 3.3cm) arc (145:35:4.667cm and 3.3cm);
+%%% Family and Rescuer
+\pic at (5,-2) {family};
+\pic[scale=1.8] at (5,-2.6) {Rescuer};
 
-
-
+%%% Zombia
+\pic[rotate=10] at (2.4,-3.4) {zombia};
+\pic[rotate=-20] at (0.95,-3.25) {zombia};
 
 \end{pgfonlayer}
 
@@ -225,8 +260,7 @@ $- \cos(n\pi y)\cos(m\pi x)$.};
 
 %%Happy New Math Year
 %\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2020}}] (-3.5,-2.5) .. controls (-1,4.5) and (1,4.5) .. (3.5,-2.5);
-\node[rectangle, draw=none, red!50!yellow!20] at (0,-2) {\LARGE\it Happy New Math Year 2021};
-
+\node[rectangle, draw=none, red!50!yellow!20] at (0,1) {\LARGE\it Happy New Math Year 2021};
 \node[rectangle, draw=none, opacity=0] at (0,-0.5) {\Huge\tt FREE HONG KONG};
 
 %%Month code
@@ -243,12 +277,9 @@ Sept & Oct & Nov & Dec \\
 \end{tabular}};
 \node[scale=0.5,above] at (-6.5,-4) {$(\text{code}+\text{date})\mathbin{\%}7=\text{day of week}$};
 
-%%Be water
-\node[yshift=1.5cm, xshift=-0.3cm, left, align=right] at (Dominican) {
-\it May we \\
-\it be still,\\
-\it be strong,\\
-\it and be water.};
+%%Goal
+\node[yshift=0.8cm, xshift=-0.3cm, left, align=right] at (Dominican) {
+\it Stay Safe.};
 
 %%Signature
 \node[yshift=0.3cm,left] at (Dominican) {\it Jephian};
@@ -290,14 +321,5 @@ Sept & Oct & Nov & Dec \\
 }
 \makeatother
 
-
-Chladni figures
-http://w3.phys.nthu.edu.tw/~gplab/file/07%20Standing%20Waves/chladni%20patterns%20(US).pdf
-
-nodal domain theorem: try discrete version, fix center
-
-NSYSU-digits
-Sage4HS
-ML in CSC
 
 
