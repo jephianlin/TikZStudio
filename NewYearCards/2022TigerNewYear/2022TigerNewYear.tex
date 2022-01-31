@@ -232,23 +232,37 @@ family/.pic={
 $};
 
 \node[rectangle, draw=none] at (0,-3.5) {SSP $\implies$ {\color{red}$F_1$} and {\color{blue}$F_2$} are locally surjective};
-
 \end{scope}
 
-%% \node[rectangle,right,align=left,pltgreen] at ([yshift=-4.5cm]Cuba) {Zeros of the  $k$-th\\ 
-%% Laplacian eigenvectors\\
-%% of the $99\times 99$ grid\\
-%% with the center weight $10$.};
+%%% LA TEA & LA notebook
+\begin{scope}
+\begin{scope}[orange, shift={(-7.8,4)}, 
+every node/.style={circle, draw, fill, inner sep=2pt}]
+\foreach \i in {1,2,3,4,5} {
+    \pgfmathsetmacro{\y}{-int(\i - 1)}
+    \node (ll\i) at (0,\y) {};
+}
+\foreach \i in {1,2,3,4} {
+    \pgfmathsetmacro{\y}{-int(\i - 1)}
+    \node (lr\i) at (1,\y) {};
+}
 
-%% \definecolor{pltblue}{RGB}{34,119,179}
-%% \node[rectangle,draw=none,inner sep=0,below] (r1) at ([xshift=-1.5cm]TurksCaicos) {\includegraphics[width=3cm]{511.png}};
-%% \node[below, inner sep=0, pltblue] at ([yshift=-1.6cm]r1.center) {\tiny$n,m=5,11$};
-%% \node[rectangle,draw=none,inner sep=0,below] (r2) at ([xshift=-5.5cm]TurksCaicos) {\includegraphics[width=3cm]{713.png}};
-%% \node[below, inner sep=0, pltblue] at ([yshift=-1.6cm]r2.center) {\tiny$n,m=7,13$};
+\draw (ll1) -- (ll2) -- (ll3) -- (ll4) -- (ll5);
+\draw (ll1) -- (lr1) -- (ll2) -- (lr2) -- (ll3) -- (lr3) -- (ll4) -- (lr4) -- (ll5);
+\end{scope}
 
-%% \node[rectangle,left,align=right,pltblue] at ([yshift=-4.5cm]TurksCaicos) {Zeros of \\ 
-%% $\cos(n\pi x)\cos(m\pi y)$\\
-%% $- \cos(n\pi y)\cos(m\pi x)$.};
+\begin{scope}[white, 
+every node/.style={rectangle, draw=none}
+]
+\node[yshift=-0.3cm, right] at (Cuba) {LA Tea};
+
+\node[right=0.1cm, align=left] at (lr1) {\scriptsize Aug 8, 2021 \\ \scriptsize Website on};
+\node[right=0.1cm, align=left] at (lr2) {\scriptsize Aug 18, 2021 \\ \scriptsize First student article};
+\node[right=0.1cm, align=left] at (lr3) {\scriptsize Aug 28, 2021 \\ \scriptsize First student essay};
+\node[right=0.1cm, align=left] at (lr4) {\scriptsize Feb 26, 2022 \\ \scriptsize First LA Tea Workshop};
+
+\end{scope}
+\end{scope}
 
 
 %%% SSP graph
