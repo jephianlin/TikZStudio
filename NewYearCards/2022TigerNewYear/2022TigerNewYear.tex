@@ -169,7 +169,7 @@ family/.pic={
 \parindent=0pt
 
 \begin{document}
-%%2021NewYear
+%%2022NewYear
 %% 16:9
 \begin{tikzpicture}
 \coordinate (Jamaica) at (-8,-4);
@@ -191,6 +191,18 @@ family/.pic={
 %% \shade [inner color=orange, outer color=red!70] (-8,-4) rectangle (8,5);
 %% \shade [left color=orange, right color=red!70] (-8,-4) rectangle (8,5);
 \shade [inner color=red!30, outer color=blue!30] (-8,-4) rectangle (8,5);
+%% \begin{scope}[opacity=0.2]
+%% \foreach \i in {1,2,3,4} {
+%%     \pgfmathsetmacro{\ang}{180 - 18 * \i}
+%%     \pgfmathsetmacro{\rang}{180 + \ang}
+%%     \pic[xshift=-0.5cm, rotate=\rang] at (\ang:3) {totu};
+%% }
+%% \foreach \i in {1,2,3,4} {
+%%     \pgfmathsetmacro{\ang}{270 + 18 * \i}
+%%     \pgfmathsetmacro{\rang}{\ang}
+%%     \pic[xshift=0.5cm, rotate=\rang] at (\ang:3) {totu};
+%% }
+%% \end{scope}
 \end{pgfonlayer} 
 
 
@@ -200,8 +212,8 @@ family/.pic={
 %%% SUPER & BIFUR
 \begin{scope}
 [every node/.style={circle, draw, inner sep=2pt}]
-\draw[white, triangle 45 - triangle 45, very thick] (-3,0) -- (3,0);
-\draw[white, triangle 45 - triangle 45, very thick] (0,-3) -- (0,3);
+\draw[white, triangle 45 - triangle 45] (-3,0) -- (3,0);
+\draw[white, triangle 45 - triangle 45] (0,-3) -- (0,3);
 \node[draw=none, rectangle, right] at (3,0) {$B$};
 \node[draw=none, rectangle, above] at (0,3) {$K$};
 
@@ -217,7 +229,7 @@ family/.pic={
 
 \begin{scope}[blue]
 \node[label={below:$M_2 = F_2(B_2,K_2)$}, fill] (M2) at (2,-2) {};
-\node[label={above:$A'_2 = F_1(B_2,O)$}, fill] (A2p) at (2,0) {};
+\node[label={above:$A'_2 = F_2(B_2,O)$}, fill] (A2p) at (2,0) {};
 \draw[thick, decorate, decoration={snake, pre length=0.1cm, post length=0.3cm}, -triangle 45] (A) -- (M2);
 \draw[thick, dashed, -triangle 45] (M2) -- (A2p);
 \node[left, rectangle, draw=none, align=right] at (1.9,-0.5) {\tiny Bifurcation\\ \tiny Lemma};
@@ -232,9 +244,20 @@ family/.pic={
 $};
 
 \node[rectangle, draw=none] at (0,-3.5) {SSP $\implies$ {\color{red}$F_1$} and {\color{blue}$F_2$} are locally surjective};
+
+\begin{scope}[xshift=-0.6cm, yshift=1.58cm]
+\pic at (1.5,0.81) {zombia};
+\pic[scale=0.6] at (2.2,0.76) {zombia};
+\pic[scale=0.6] at (2.9,0.76) {zombia};
+\end{scope}
+\begin{scope}[xshift=0.04cm, yshift=-0.06cm]
+\pic at (1.5,0.81) {zombia};
+\pic[scale=0.6] at (2.2,0.76) {zombia};
+\pic[scale=0.6] at (2.9,0.76) {zombia};
+\end{scope}
 \end{scope}
 
-%%% LA TEA & LA notebook
+%%% LA NOTEBOOK
 \begin{scope}
 \begin{scope}[orange, shift={(-7.8,4)}, 
 every node/.style={circle, draw, fill, inner sep=2pt}]
@@ -246,64 +269,58 @@ every node/.style={circle, draw, fill, inner sep=2pt}]
     \pgfmathsetmacro{\y}{-int(\i - 1)}
     \node (lr\i) at (1,\y) {};
 }
+\node (le) at (0.33, -3.33) {};
 
 \draw (ll1) -- (ll2) -- (ll3) -- (ll4) -- (ll5);
 \draw (ll1) -- (lr1) -- (ll2) -- (lr2) -- (ll3) -- (lr3) -- (ll4) -- (lr4) -- (ll5);
+\draw (le) -- (ll4);
+\draw (le) -- (ll5);
+\draw (le) -- (lr4);
 \end{scope}
 
 \begin{scope}[white, 
 every node/.style={rectangle, draw=none}
 ]
-\node[yshift=-0.3cm, right] at (Cuba) {LA Tea};
-
-\node[right=0.1cm, align=left] at (lr1) {\scriptsize Aug 8, 2021 \\ \scriptsize Website on};
-\node[right=0.1cm, align=left] at (lr2) {\scriptsize Aug 18, 2021 \\ \scriptsize First student article};
-\node[right=0.1cm, align=left] at (lr3) {\scriptsize Aug 28, 2021 \\ \scriptsize First student essay};
-\node[right=0.1cm, align=left] at (lr4) {\scriptsize Feb 26, 2022 \\ \scriptsize First LA Tea Workshop};
-
+\node[yshift=-0.3cm, right] at (Cuba) {LA notebook};
+\node[right=0.1cm, align=left] at (lr1) {\scriptsize\color{red!20} Jul 6, 2021 \\ \scriptsize First notebook};
+\node[right=0.1cm, align=left] at (lr2) {\scriptsize\color{red!20} Jul 24, 2021 \\ \scriptsize Website on};
+\node[right=0.1cm, align=left] at (lr3) {\scriptsize\color{red!20} Jul 24, 2021 \\ \scriptsize v0.1 released};
+\node[right=0.1cm, align=left] at (lr4) {\scriptsize\color{red!20} Oct 4, 2021 \\ \scriptsize First student notebook};
 \end{scope}
 \end{scope}
 
+%%% LA TEA
+\begin{scope}
+\begin{scope}[orange, shift={(7.8,4)}, 
+every node/.style={circle, draw, fill, inner sep=2pt}]
+\foreach \i in {1,2,3,4,5} {
+    \pgfmathsetmacro{\y}{-int(\i - 1)}
+    \node (rr\i) at (0,\y) {};
+}
+\foreach \i in {1,2,3,4} {
+    \pgfmathsetmacro{\y}{-int(\i - 1)}
+    \node (rl\i) at (-1,\y) {};
+}
 
-%%% SSP graph
-%% \begin{scope}[yshift=-1cm, scale=0.8, 
-%% every node/.style={circle,draw=red,fill=red,inner sep=3pt}]
-%% \node (0) at (0,0) {};
-%% \foreach \i in {0,1,2} {
-%%   \pgfmathsetmacro{\ang}{0 + \i*120/4}
-%%   \pgfmathsetmacro{\ind}{int(1 + \i)}
-%%   \pgfmathsetmacro{\ip}{int(1 + \i)}
-%%   \node (\ind) at (\ang:\ip) {};
-%% }
-%% \foreach \i in {0,1,2,3} {
-%%   \pgfmathsetmacro{\ang}{120 + \i*120/5}
-%%   \pgfmathsetmacro{\ind}{int(4 + \i)}
-%%   \pgfmathsetmacro{\ip}{int(1 + \i)}
-%%   \node (\ind) at (\ang:\ip) {};
-%% }
-%% \foreach \i in {0,1,2,3,4} {
-%%   \pgfmathsetmacro{\ang}{240 + \i*120/6}
-%%   \pgfmathsetmacro{\ind}{int(8 + \i)}
-%%   \pgfmathsetmacro{\ip}{int(1 + \i)}
-%%   \node (\ind) at (\ang:\ip) {};
-%% }
-%% \draw[red] (0) -- (1) -- (2) -- (3);
-%% \draw[red] (0) -- (4) -- (5) -- (6) -- (7);
-%% \draw[red] (0) -- (8) -- (9) -- (10) -- (11) -- (12);
+\draw (rr1) -- (rr2) -- (rr3) -- (rr4) -- (rr5);
+\draw (rr1) -- (rl1) -- (rr2) -- (rl2) -- (rr3) -- (rl3) -- (rr4) -- (rl4) -- (rr5);
+%%% M <= 2 GRAPH
+\node[rectangle, fill=none, draw=none, left, align=right] at (0,-5) {
+\footnotesize Graphs allowing \\
+\footnotesize all ordered multiplicity list \\
+\footnotesize with multiplicities $\leq 2$};
+\end{scope}
 
-%% \node[rectangle,draw=none,fill=none,red,align=center] at (-3.2,-2) {
-%% \footnotesize Every matrix of this graph\\
-%% \footnotesize has the strong spectral property.};
-%% \end{scope}
-
-
-%%% Family and Rescuer
-%% \pic at (5,-2) {family};
-%% \pic[scale=1.8] at (5,-2.6) {Rescuer};
-
-%%% Zombia
-%% \pic[rotate=10] at (2.4,-3.4) {zombia};
-%% \pic[rotate=-20] at (0.95,-3.25) {zombia};
+\begin{scope}[white, 
+every node/.style={rectangle, draw=none}
+]
+\node[yshift=-0.3cm, left] at (TurksCaicos) {LA Tea};
+\node[left=0.1cm, align=right] at (rl1) {\scriptsize\color{red!20} Aug 8, 2021 \\ \scriptsize Website on};
+\node[left=0.1cm, align=right] at (rl2) {\scriptsize\color{red!20} Aug 18, 2021 \\ \scriptsize First student article};
+\node[left=0.1cm, align=right] at (rl3) {\scriptsize\color{red!20} Aug 28, 2021 \\ \scriptsize First student essay};
+\node[left=0.1cm, align=right] at (rl4) {\scriptsize\color{red!20} Feb 26, 2022 \\ \scriptsize First LA Tea Workshop};
+\end{scope}
+\end{scope}
 
 \end{pgfonlayer}
 
@@ -313,7 +330,7 @@ every node/.style={rectangle, draw=none}
 
 %%Happy New Math Year
 %\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2020}}] (-3.5,-2.5) .. controls (-1,4.5) and (1,4.5) .. (3.5,-2.5);
-%% \node[rectangle, draw=none, red!50!yellow!20] at (0,1) {\LARGE\it Happy New Math Year 2021};
+\node[rectangle, draw=none, red!60!blue!60] at (0,4) {\LARGE\it Happy New Math Year 2022};
 %% \node[rectangle, draw=none, opacity=0] at (0,-0.5) {\Huge\tt FREE HONG KONG};
 
 %%Month code
@@ -331,11 +348,12 @@ Sept & Oct & Nov & Dec \\
 \node[scale=0.5,above] at (-6.5,-4) {$(\text{code}+\text{date})\mathbin{\%}7=\text{day of week}$};
 
 %%Goal
-%% \node[yshift=0.8cm, xshift=-0.3cm, left, align=right] at (Dominican) {
-%% \it Stay Safe.};
+\node[yshift=1cm, xshift=-0.3cm, left, align=right] at (Dominican) {
+\it Be mindful \\
+\it and be mathful.};
 
 %%Signature
-%% \node[yshift=0.3cm,left] at (Dominican) {\it Jephian};
+\node[yshift=0.3cm,left] at (Dominican) {\it Jephian};
 
 \end{pgfonlayer}
 
