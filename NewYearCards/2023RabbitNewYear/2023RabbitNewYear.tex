@@ -9,10 +9,13 @@
 \renewcommand{\rmdefault}{pplx}
 
 \usepackage{amsmath, amssymb}
+\usepackage{bigints}
+\usepackage[hidelinks]{hyperref}
 \newcommand{\mptn}{\mathcal{S}}
 \newcommand{\mptncl}{\mathcal{S}^{\rm cl}}
 \newcommand{\msym}{\operatorname{Sym}_n(\mathbb{R})}
 \newcommand{\mskew}{\operatorname{Skew}_n(\mathbb{R})}
+
 
 
 \usepackage{tikz}
@@ -29,7 +32,7 @@ every label/.style={rectangle, draw=none}}
 %\usetikzlibrary{decorations}
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{decorations.text}
-\usetikzlibrary{shadings}
+%% \usetikzlibrary{shadings}
 %\usetikzlibrary{fit}
 %\usetikzlibrary{calc}
 %\usetikzlibrary{through}
@@ -213,17 +216,29 @@ family/.pic={
 \begin{pgfonlayer}{main}
 
 %%% RESIDUAL
-\draw[-triangle 45] (-7,0) -- (7,0);
-\draw[-triangle 45] (-4,3) -- (-4,4);
-\draw[-triangle 45] (-4,0) arc (0:360:1);
+\draw[black!30, very thick] (-7,0) -- (0.5,0);
+\draw[black!30, very thick, dotted] (0.5,0) -- (1.5,0);
+\draw[black!30, very thick, -triangle 45] (1.5,0) -- (7,0);
+\draw[black!30, very thick, -triangle 45] (-4,-3) -- (-4,4);
+\draw[ultra thick, -triangle 45] (-4,0) arc (0:360:1);
 \node at (-4.5,0.5) {$\gamma$};
 \node[circle, draw, fill, inner sep=2pt, label={below:$-1$}] at (-5,0) {};
 \node[circle, draw, fill, inner sep=2pt, label={below:$4$}] at (0,0) {};
 
-\node[circle, draw, fill, inner sep=2pt, label={below:$2023$}] at (3,0) {};
-\node[circle, draw, fill, inner sep=2pt, label={below:$2025$}] at (5,0) {};
+\node[rectangle, right] at (-7.5,2) {$\displaystyle\frac{1}{2\pi i}\bigointss_\gamma \left(zI - \begin{bmatrix} 0 & 2 \\ 2 & 3 \end{bmatrix}\right)^{-1}dz = \frac{1}{5}\begin{bmatrix} 4 & -2 \\ -2 & 1 \end{bmatrix}$};
+\node[rectangle, right, align=left] at (-7.5,3.2) 
+{\small sum of idempotents of $\lambda$'s nearby $-1$\\ 
+\small is continuous with respect to matrix entries};
+
+\node[circle, draw, fill, inner sep=2pt, label={above:$2023$}] (2023) at (3,0) {};
+\node[circle, draw, fill, inner sep=2pt, label={below:$2025$}] (2025) at (5,0) {};
 
 %%% 
+
+
+%%% PROMOTION & BOOK cwp
+\node[black!30, above=-2] at (1.5,0) {\scriptsize \href{https://bookstore.ams.org/surv-270}{IEPG-ZF} published};
+\node[black!30, below=-2] at (1.5,0) {\scriptsize associate professor};
 
 \end{pgfonlayer}
 
@@ -233,8 +248,14 @@ family/.pic={
 
 %%Happy New Math Year
 %\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2020}}] (-3.5,-2.5) .. controls (-1,4.5) and (1,4.5) .. (3.5,-2.5);
-%% \node[rectangle, draw=none, red!60!blue!60] at (0,4) {\LARGE\it Happy New Math Year 2022};
+%% \node[rectangle, draw=none, orange!80!yellow] at (0,-3) {\LARGE\it Happy New Math Year 2023};
+\node[rectangle, draw=none, yellow] (hny) at (0,-3) {\LARGE\it Happy New Math Year 2023};
+\draw[yellow, very thick, -triangle 45, shorten <=0.1cm, shorten >=0.1cm] (hny.north) .. controls ++(0,2) and ++(0,-2) .. (2023.south);
 %% \node[rectangle, draw=none, opacity=0] at (0,-0.5) {\Huge\tt FREE HONG KONG};
+
+%%%ILAS2025
+\node[rectangle, draw=none, yellow] (ILAS2025) at (4,3) {\LARGE \texttt{ILAS2025} in Kaohsiung!};
+%% \draw[yellow, very thick, -triangle 45, shorten <=0.1cm, shorten >=0.1cm] (hny.north) .. controls ++(0,2) and ++(0,-2) .. (2023.south);
 
 %%Month code
 \node[above] at (-6.5,-1.9) {2023 month code};
