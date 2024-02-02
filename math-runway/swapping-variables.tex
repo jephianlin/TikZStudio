@@ -5,6 +5,7 @@
 \usepackage[a3paper, margin=1in]{geometry}
 %% landscape
 \usepackage{tikz}
+\usetikzlibrary{arrows}
 \tikzset{
 every picture/.style={very thick}
 }
@@ -15,7 +16,6 @@ every picture/.style={very thick}
 \renewcommand{\rmdefault}{pplx}
 
 \newcommand{\Var}{\operatorname{Var}}
-
 
 \tikzset{
   byte/.pic={
@@ -61,10 +61,86 @@ every picture/.style={very thick}
   \end{tikzpicture}  
 \end{center}
 
+\vspace{2cm}
 
+\begin{description}
+\item[Rule 1] $\rho_i \leftrightarrow \rho_j$ (not allowed)
+\item[Rule 2] $\rho_i = k\rho_i$ for some $k\neq 0$
+\item[Rule 3] $\rho_i = \rho_i + k\rho_j$
+\end{description}
 
+\begin{center}
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \node at (0,0) {$\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$};
+  \end{tikzpicture}
+  \hfil
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \draw[-triangle 45] (-2,0) -- (2,0);
+    \draw (-1.5,0.5) rectangle (1.5,1.5);
+    \node[rectangle, opacity=0] at (0,1) {$\rho_2 = \rho_1 + \rho_2$};
+  \end{tikzpicture}
+  \hfil  
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \node[opacity=0] at (0,0) {$\begin{bmatrix} 1 & 0 \\ 1 & 1 \end{bmatrix}$};
+  \end{tikzpicture}
+  \hfil
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \draw[-triangle 45] (-2,0) -- (2,0);
+    \draw (-1.5,0.5) rectangle (1.5,1.5);
+    \node[rectangle, opacity=0] at (0,1) {$\rho_1 = \rho_1 - \rho_2$};
+  \end{tikzpicture}
+  \hfil  
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \node[opacity=0] at (0,0) {$\begin{bmatrix} 0 & -1 \\ 1 & 1 \end{bmatrix}$};
+  \end{tikzpicture}
+  \hfil
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \draw[-triangle 45] (-2,0) -- (2,0);
+    \draw (-1.5,0.5) rectangle (1.5,1.5);
+    \node[rectangle, opacity=0] at (0,1) {$\rho_2 = \rho_1 + \rho_2$};
+  \end{tikzpicture}
+  \hfil  
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \node[opacity=0] at (0,0) {$\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$};
+  \end{tikzpicture}
+  \hfil
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \draw[-triangle 45] (-2,0) -- (2,0);
+    \draw (-1.5,0.5) rectangle (1.5,1.5);
+    \node[rectangle, opacity=0] at (0,1) {$\rho_1 = -\rho_1$};
+  \end{tikzpicture}
+  \hfil  
+  \begin{tikzpicture}
+    \draw[opacity=0](0,-2) -- (0,2);
+    \node at (0,0) {$\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$};
+  \end{tikzpicture}  
+\end{center}
 
+\vspace{2cm}
 
+\begin{center}
+  \begin{tabular}{c|cc}
+    $(\mathbb{Z}_2, \oplus)$ & 0 & 1 \\
+    \hline
+    0 & 0 & 1 \\
+    1 & 1 & 0
+  \end{tabular}
+  \hfil
+  \begin{tabular}{c|cc}
+    XOR \verb|^| & \verb|F| & \verb|T| \\
+    \hline
+    \verb|F| & \verb|F| & \verb|T| \\
+    \verb|T| & \verb|T| & \verb|F|
+  \end{tabular}  
+\end{center}
 
 \end{document}
 
