@@ -14,6 +14,37 @@ every picture/.style={very thick}
 \usepackage[OT1]{eulervm}
 \renewcommand{\rmdefault}{pplx}
 
+\newcommand{\trans}{^\top}
+\newcommand{\adj}{^{\rm adj}}
+\newcommand{\cof}{^{\rm cof}}
+\newcommand{\inp}[2]{\left\langle#1,#2\right\rangle}
+\newcommand{\dunion}{\mathbin{\dot\cup}}
+\newcommand{\bzero}{\mathbf{0}}
+\newcommand{\bone}{\mathbf{1}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bd}{\mathbf{d}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\nul}{\operatorname{null}}
+\newcommand{\rank}{\operatorname{rank}}
+%\newcommand{\ker}{\operatorname{ker}}
+\newcommand{\range}{\operatorname{range}}
+\newcommand{\Col}{\operatorname{Col}}
+\newcommand{\Row}{\operatorname{Row}}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\vspan}{\operatorname{span}}
+
 \newcommand{\Var}{\operatorname{Var}}
 
 \begin{document}
@@ -27,7 +58,7 @@ every picture/.style={very thick}
 Vairance of a \emph{fair} dice:
 \[
 \begin{aligned}
-  \Var(X) &= \mathbb{E}[(X - \mu)^2] \\
+  \Var(X) &= \mathbb{E}[(X - \mathbb{E}[X])^2] \\
    &= \frac{1}{6}(1 - 3.5)^2 + \frac{1}{6}(2 - 3.5)^2 + \frac{1}{6}(3 - 3.5)^2 + \frac{1}{6}(4 - 3.5)^2 + \frac{1}{6}(5 - 3.5)^2 + \frac{1}{6}(6 - 3.5)^2 \\
    &= 2.916\cdots
 \end{aligned}
@@ -38,7 +69,7 @@ Vairance of a \emph{fair} dice:
 \begin{center}
   \begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{7cm}|}
     \hline
-    $\displaystyle x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $\displaystyle\mu = \frac{1}{n}\sum_{i=1}^n x_i$ & $\tau^2 = \displaystyle\frac{1}{n}\sum_{i=1}^n (x_i - \mu)^2 = \frac{1}{n}\sum_{i=1}^n x_i^2 - \mu^2$ \\
+    $\displaystyle x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $\displaystyle\overline{\bx} = \frac{1}{n}\sum_{i=1}^n x_i$ & $\sigma^2 = \displaystyle\frac{1}{n}\sum_{i=1}^n (x_i - \overline{\bx})^2 = \frac{1}{n}\sum_{i=1}^n x_i^2 - \overline{\bx}^2$ \\
     \hline
     ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
     \hline
@@ -64,7 +95,7 @@ Vairance of a \emph{fair} dice:
 
 \vspace{2cm}
 
-average of $\tau^2 =$
+average of $\sigma^2 =$
 \end{center}
 
 \end{document}
