@@ -334,9 +334,9 @@ family/.pic={
 \end{scope}
 
 %%% ILAS2025-LOGO
-\begin{scope}[xshift=6cm, yshift=3cm, scale=0.8, transform shape, 
+\begin{scope}[white, xshift=6cm, yshift=3cm, scale=0.8, transform shape, 
     every node/.style={circle, draw, inner sep=1pt}]
-\begin{scope}[black, very thick]
+\begin{scope}[very thick]
 \node (0) at (-2,0) {};
 \node (1) at (-1,0) {};
 \node (2) at (1,0) {};
@@ -371,11 +371,17 @@ family/.pic={
 \end{scope}
 
 % URL
-\node[draw=none, rectangle, align=center, scale=0.6, transform shape] at (6,1) {Visit\\\url{https://ilas2025.tw/}\\for more\\about the conference!};
+%% \node[red!70!black, draw=none, rectangle, align=center, scale=0.6, transform shape] (ilas-web) at (6,1) {Visit\\\tt https://ilas2025.tw/\\for more\\about the conference!};
+
+\node[draw=none] at (6,1) {
+  \href{https://ilas2025.tw/}{
+    \tikz\node[red!70!black, draw=none, rectangle, align=center, scale=0.6, transform shape] at (0,0) {Visit\\\tt https://ilas2025.tw/\\for more\\about the conference!};
+  }
+};
 
 
 %%% YAM
-\begin{scope}[xshift=-6cm, yshift=3cm, scale=0.5, transform shape, 
+\begin{scope}[white, xshift=-6cm, yshift=3cm, scale=0.5, transform shape, 
   every node/.style={circle, draw, inner sep=1pt}]
 \node[label={right:root}, fill] (root) at (0,0) {};
 
@@ -435,7 +441,7 @@ family/.pic={
 \end{scope}
 
 % text
-\node[draw=none, rectangle, align=center, scale=0.6, transform shape] at (-6,1) {A yam graph\\ does not allow\\ nullity pair $(1,2)$\\ with the SNIP.};
+\node[red!70!black, draw=none, rectangle, align=center, scale=0.6, transform shape] at (-6,1) {A yam graph\\ does not allow\\ nullity pair $(1,2)$\\ with the SNIP.};
 
 \end{pgfonlayer}
 
