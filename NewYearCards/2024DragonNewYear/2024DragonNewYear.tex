@@ -174,7 +174,7 @@ family/.pic={
 \parindent=0pt
 
 \begin{document}
-%%2023NewYear
+%%2024NewYear
 %% 16:9
 \begin{tikzpicture}
 \coordinate (Jamaica) at (-8,-4);
@@ -193,10 +193,9 @@ family/.pic={
 
 %%background Layer
 \begin{pgfonlayer}{background}
-%% \shade [inner color=orange, outer color=red!70] (-8,-4) rectangle (8,5);
+%% \shade [inner color=red!70, outer color=orange!50] (-8,-4) rectangle (8,5);
 %% \shade [left color=orange, right color=red!70] (-8,-4) rectangle (8,5);
-%% \shade [inner color=red!30, outer color=blue!30] (-8,-4) rectangle (8,5);
-\shade [shading=axis, top color=orange!50, bottom color=red!50, shading angle=90] (-8,-4) rectangle (8,5);
+\shade [shading=axis, top color=orange!50, bottom color=red!50, shading angle=135] (-8,-4) rectangle (8,5);
 %% \begin{scope}[opacity=0.2]
 %% \foreach \i in {1,2,3,4} {
 %%     \pgfmathsetmacro{\ang}{180 - 18 * \i}
@@ -334,8 +333,109 @@ family/.pic={
 \node[scale=2.25] (dsigma) at (0.35,-0.35) {$\sum$};
 \end{scope}
 
+%%% ILAS2025-LOGO
+\begin{scope}[xshift=6cm, yshift=3cm, scale=0.8, transform shape, 
+    every node/.style={circle, draw, inner sep=1pt}]
+\begin{scope}[black, very thick]
+\node (0) at (-2,0) {};
+\node (1) at (-1,0) {};
+\node (2) at (1,0) {};
+\node (3) at (2,0) {};
+\node (4) at (0,0.5) {};
+\node (5) at (0,0.7) {};
+\node (6) at (0,1.5) {};
+\node (7) at (0,2) {};
+
+\draw (7) -- (0);
+\draw (7) -- (1);
+\draw (7) -- (2);
+\draw (7) -- (3);
+\draw (4) -- (1);
+\draw (4) -- (2);
+\draw (4) -- (5) -- (6) -- (7);
+\draw (4) to [out=180, in=0, out looseness=1] (0);
+\draw (4) to [out=0, in=180, out looseness=1] (3);
+\draw (5) to [out=180, in=0, out looseness=0.8] (0);
+\draw (5) to [out=0, in=180, out looseness=0.8] (3);
+
+\node[draw=none,rectangle] at (0,0) {\footnotesize Kaohsiung};
+\end{scope}
+
+% text
+\begin{scope}[shift={(0,-0.9)}] % was -1.25
+\node[rectangle, draw=none] (ILAS2025) at (0,0) {\Huge ILAS$2025$};
+\node[rectangle, draw=none, above, xshift=1.3cm] at (ILAS2025.north) {\scriptsize$\lambda_2^L = 1.6$};
+\node[rectangle, draw=none, below, xshift=0.86cm] at (ILAS2025.south) {\scriptsize$4364962\cdots$};
+\end{scope}
+
+\end{scope}
+
+% URL
+\node[draw=none, rectangle, align=center, scale=0.6, transform shape] at (6,1) {Visit\\\url{https://ilas2025.tw/}\\for more\\about the conference!};
 
 
+%%% YAM
+\begin{scope}[xshift=-6cm, yshift=3cm, scale=0.5, transform shape, 
+  every node/.style={circle, draw, inner sep=1pt}]
+\node[label={right:root}, fill] (root) at (0,0) {};
+
+% leaf1
+\node (l11) at (-1,1) {};
+\node (l12) at (-1.5,2) {};
+\node (l13) at (-3,1) {};
+\node (l14) at (-3,0.5) {};
+\draw (root) -- (l11);
+\draw decorate[decoration={name=random steps}] {(l11) -- (l12)};
+\draw decorate[decoration={name=random steps}] {(l11) -- (l13)};
+\draw decorate[decoration={name=random steps}] {(l11) -- (l14)};
+
+% leaf2
+\node (l21) at (-0.5,2) {};
+\node (l22) at (-1.5,3) {};
+\node (l23) at (-1,3.5) {};
+\node (l24) at (0.5,3) {};
+\node (l25) at (2,3) {};
+\draw (root) -- (l21);
+\draw decorate[decoration={name=random steps}] {(l21) -- (l22)};
+\draw decorate[decoration={name=random steps}] {(l21) -- (l23)};
+\draw decorate[decoration={name=random steps}] {(l21) -- (l24)};
+\draw decorate[decoration={name=random steps}] {(l21) -- (l25)};
+
+% leaf3
+\node (l31) at (1,1.5) {};
+\node (l32) at (2,2) {};
+\node (l33) at (4,1.5) {};
+\node (l34) at (3,1) {};
+\draw (root) -- (l31);
+\draw decorate[decoration={name=random steps}] {(l31) -- (l32)};
+\draw decorate[decoration={name=random steps}] {(l31) -- (l33)};
+\draw decorate[decoration={name=random steps}] {(l31) -- (l34)};
+
+% yam1
+\foreach \i in {1,2,3,4} {
+    \pgfmathsetmacro{\x}{-2 + 0.5*(\i - 1)}
+    \node (y1\i) at (\x,-1) {};
+}
+\draw (y11) -- (y12) -- (y13) -- (y14);
+\draw (root) -- (y11);
+\draw (root) -- (y12);
+\draw (root) -- (y14);
+\draw[dashed] (-1.25,-1) ellipse (1cm and 0.3cm); 
+
+% yam2
+\foreach \i in {1,2,3,4,5,6} {
+    \pgfmathsetmacro{\x}{0 + 0.5*(\i - 1)}
+    \node (y2\i) at (\x,-2) {};
+}
+\draw (y21) -- (y22) -- (y23) -- (y24) -- (y25) -- (y26);
+\draw (root) -- (y22);
+\draw (root) -- (y23);
+\draw (root) -- (y26);
+\draw[dashed] (1.25,-2) ellipse (1.75cm and 0.3cm);   
+\end{scope}
+
+% text
+\node[draw=none, rectangle, align=center, scale=0.6, transform shape] at (-6,1) {A yam graph\\ does not allow\\ nullity pair $(1,2)$\\ with the SNIP.};
 
 \end{pgfonlayer}
 
@@ -350,29 +450,26 @@ family/.pic={
 %% \draw[yellow, very thick, -triangle 45, shorten <=0.1cm, shorten >=0.1cm] (hny.20) .. controls ++(0,2) and ++(0,-2) .. (2023.south);
 %% \node[rectangle, draw=none, opacity=0] at (0,-0.5) {\Huge\tt FREE HONG KONG};
 
-%%%ILAS2025
-%% \node[rectangle, draw=none, yellow, below] (ILAS2025) at (3.5,3) {\LARGE \href{https://ilasic.org/conferences/}{\texttt{ILAS2025}} in \href{https://khh.travel/en}{Kaohsiung}!};
-%% \draw[yellow, very thick, -triangle 45, shorten <=0.1cm, shorten >=0.1cm] (ILAS2025.south) .. controls ++(0,-1.5) and ++(0,1.5) .. (2025.north);
-
 %%Month code
-\node[above] at (-6.5,-1.9) {2023 month code};
+\node[above] at (-6.5,-1.9) {2024 month code};
 \node[scale=0.7,below] at (-6.5,-1.8) {\begin{tabular}{cccc} 
 Jan & Feb & Mar & Apr \\
- 6 & 2 & 2 & 5 \\
+ 0 & 3 & 4 & 0 \\
 \hline
 May & Jun & Jul & Aug \\
- 0 & 3 & 5 & 1 \\
+ 2 & 5 & 0 & 3 \\
 \hline
 Sept & Oct & Nov & Dec \\
- 4 & 6 & 2 & 4 \\
+ 6 & 1 & 4 & 6 \\
 \end{tabular}};
 \node[scale=0.5,above] at (-6.5,-4) {$(\text{code}+\text{date})\mathbin{\%}7=\text{day of week}$};
 
 %%Goal
+% y 1.3 for three sentences
 \node[yshift=1.3cm, xshift=-0.3cm, left, align=right] at (Dominican) {
-\it Do more exercise, \\
-\it do more research, \\
-\it and be happy.};
+\it Math and mind. \\
+\it That's pretty much \\
+\it all we need to care about.};
 
 %%Signature
 \node[yshift=0.3cm,left] at (Dominican) {\it Jephian};
