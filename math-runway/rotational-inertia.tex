@@ -63,148 +63,152 @@ every picture/.style={very thick}
   }
 }
 
-Rotational inertia of a mass of weight $m$ and of distance $R$ from the pivot point:
+\noindent
+The rotational inertia of a particle of weight $M$ and of distance $R$ from the pivot point is
 \[
-    I = mR^2
+    I = MR^2.
 \]
+In general, the rotational inertia of an object is
+\[
+    I = \int \rho r^2 \, dV,
+\]
+where $\rho$ is the density and $V$ is the volumn.
 
 \vspace{2cm}
-
-%% solid cylinder
-\begin{tikzpicture}
-  \draw[fill=black!30] (0,0) circle (2cm);
-  \node[circle, fill=black, inner sep=1pt] at (0,0) {};
-  \draw[->] (90:0.5) arc (90:360:0.5);
-\end{tikzpicture}
-%% solid cylinder approximate
-\begin{tikzpicture}
-  \draw (0,0) circle (2cm);
-  \node[circle, fill=black, inner sep=1pt] at (0,0) {};
-  \pgfmathsetmacro{\r}{2/3}
-  \pgfmathsetmacro{\twor}{4/3}
-  \pic at (0,0) {cross};
-  \draw (0,0) circle (\r);
-  \foreach \i in {1,2,...,6} {
-    \pgfmathsetmacro{\ang}{90 + 60*(\i - 1)}
-    \pic at (\ang:\twor) {cross};
-    \draw (\ang:\twor) circle (\r);    
-  }
-\end{tikzpicture}
-
-%% hollow cylinder
-\begin{tikzpicture}
-  \draw (0,0) circle (2cm);
-  \node[circle, fill=black, inner sep=1pt] at (0,0) {};
-  \draw[->] (90:0.5) arc (90:360:0.5);
-\end{tikzpicture}
-%% hollow cylinder approximate
-\begin{tikzpicture}
-  \draw (0,0) circle (2cm);
-  \node[circle, fill=black, inner sep=1pt] at (0,0) {};
-  \foreach \i in {1,2,...,6} {
-    \pgfmathsetmacro{\ang}{90 + 60*(\i - 1)}
-    \pgfmathsetmacro{\inang}{\ang - 28}
-    \pgfmathsetmacro{\outang}{\ang + 28}
-    \draw[line width=5pt, black!30] (\inang:2) arc (\inang:\outang:2);
-    \pic at (\ang:2) {cross};
-  }
-\end{tikzpicture}
-
-%% solid sphere
-\begin{tikzpicture}[opacity=0.8]
-  \draw (0,-2.5,0) -- (0,2.5,0);
-  \draw[canvas is zx plane at y=2.5,->] (180:0.5) arc (180:450:0.5);
-  \node[circle, fill=black, inner sep=1pt] at (0,0) {};
-  \draw[ball color=black!30] (0,0) circle (2cm);
-\end{tikzpicture}
-%% solid sphere approximate
-\begin{tikzpicture}[opacity=0.8]
-  \pgfmathsetmacro{\r}{2 / (1 + sqrt(2)}
-  \pgfmathsetmacro{\sqrttwor}{2 * sqrt(2) / (1 + sqrt(2)}
-  \pic at (0,0,-\sqrttwor) {cross};
-  \draw[canvas is xy plane at z=-\sqrttwor, ball color=black!30] (0,0) circle (\r);  
-  \draw (0,-2.5,0) -- (0,2.5,0);
-  \draw[canvas is zx plane at y=2.5,->] (180:0.5) arc (180:450:0.5);
-  \node[circle, fill=black, inner sep=1pt] at (0,0) {};
-  \draw (0,0) circle (2cm);
-  \foreach \ang in {0,90,180,270} {
-    \pic at (\ang:\sqrttwor) {cross};
-    \draw[ball color=black!30] (\ang:\sqrttwor) circle (\r);
-  }
-  \pic at (0,0,\sqrttwor) {cross};
-  \draw[canvas is xy plane at z=\sqrttwor, ball color=black!30] (0,0) circle (\r);
-\end{tikzpicture}
-
-%% hollow sphere
-\begin{tikzpicture}
-  \draw (0,-2.5,0) -- (0,2.5,0);
-  \draw[canvas is zx plane at y=2.5,->] (180:0.5) arc (180:450:0.5);
-  \node[circle, fill=black, inner sep=1pt] at (0,0) {};
-  \draw (0,0) circle (2cm);
-  \draw[canvas is yz plane at x=0] (0,0) circle (2cm);
-  \foreach \phi in {-90, -80, ..., 90} {
-    \pgfmathsetmacro{\cphi}{2 * cos(\phi}
-    \pgfmathsetmacro{\sphi}{2 * sin(\phi}
-  \draw[canvas is xz plane at y=\sphi] (0,0) circle (\cphi cm);
-  }
-\end{tikzpicture}
-%% hollow sphere approximate
-\begin{tikzpicture}[opacity=0.8]
-  \pgfmathsetmacro{\r}{sqrt(2)}
-  \draw[canvas is yz plane at x=-\r, ball color=black!30] (0,0) circle (\r);
-  \pic at (-\r,0,0) {cross};
-  \draw[canvas is zx plane at y=-\r, ball color=black!30] (0,0) circle (\r);
-  \pic at (0,-\r,0) {cross};
-  \draw[canvas is xy plane at z=-\r, ball color=black!30] (0,0) circle (\r);
-  \pic at (0,0,-\r) {cross};
-  \draw (0,-2.5,0) -- (0,2.5,0);
-  \draw[canvas is zx plane at y=2.5,->] (180:0.5) arc (180:450:0.5);
-  \node[circle, fill=black, inner sep=1pt] at (0,0) {};
-  %% \draw (0,0) circle (2cm);
-  \draw[canvas is yz plane at x=\r, ball color=black!30] (0,0) circle (\r);
-  \pic at (\r,0,0) {cross};
-  \draw[canvas is zx plane at y=\r, ball color=black!30] (0,0) circle (\r);
-  \pic at (0,\r,0) {cross};
-  \draw[canvas is xy plane at z=\r, ball color=black!30] (0,0) circle (\r);
-  \pic at (0,0,\r) {cross};
-  \draw (0,\r,0) -- (0,2.5,0);
-\end{tikzpicture}
 
 \begin{center}
-  \begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{7cm}|}
+  \begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|>{\centering\arraybackslash}m{4.5cm}|>{\centering\arraybackslash}m{4.5cm}|>{\centering\arraybackslash}m{5.5cm}|>{\centering\arraybackslash}m{5.5cm}|}
     \hline
-    $\displaystyle x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $\displaystyle\overline{\bx} = \frac{1}{n}\sum_{i=1}^n x_i$ & $\sigma^2 = \displaystyle\frac{1}{n}\sum_{i=1}^n (x_i - \overline{\bx})^2 = \frac{1}{n}\sum_{i=1}^n x_i^2 - \overline{\bx}^2$ \\
+    Name & Object & Partition & Approximation $\sum_i m_ir_i^2$ & Rotational inertia $\int \rho r^2 \, dV$ \\
     \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
+
+    solid cylinder &
+    %% solid cylinder
+    \begin{tikzpicture}
+      \draw[opacity=0] (0,-2.5) -- (0,2.5);
+      \draw[fill=black!30] (0,0) circle (2cm);
+      \node[circle, fill=black, inner sep=1pt] at (0,0) {};
+      \draw[->] (90:0.5) arc (90:360:0.5);
+    \end{tikzpicture} &
+    %% solid cylinder approximate
+    \begin{tikzpicture}
+      \draw[opacity=0] (0,-2.5) -- (0,2.5);
+      \draw (0,0) circle (2cm);
+      \node[circle, fill=black, inner sep=1pt] at (0,0) {};
+      \pgfmathsetmacro{\r}{2/3}
+      \pgfmathsetmacro{\twor}{4/3}
+      \pic at (0,0) {cross};
+      \draw (0,0) circle (\r);
+      \foreach \i in {1,2,...,6} {
+        \pgfmathsetmacro{\ang}{90 + 60*(\i - 1)}
+        \pic at (\ang:\twor) {cross};
+        \draw (\ang:\twor) circle (\r);    
+      }
+    \end{tikzpicture} &
+    \raggedright\arraybackslash $\displaystyle\frac{1}{7}M\cdot\left(\frac{2}{3}R\right)^2 + $ \vspace{3cm} \tikz{\node[opacity=0] at (0,0) {$\frac{24}{63}MR^2$};} &
+    \raggedright\arraybackslash $\displaystyle\int\frac{M}{\pi R^2} \cdot r^2 \, dA = $ \vspace{3cm} \tikz{\node[opacity=0] at (0,0) {$\frac{1}{2}MR^2$};} \\
     \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
+
+    hollow cylinder &     
+    %% hollow cylinder
+    \begin{tikzpicture}
+      \draw[opacity=0] (0,-2.5) -- (0,2.5);
+      \draw (0,0) circle (2cm);
+      \node[circle, fill=black, inner sep=1pt] at (0,0) {};
+      \draw[->] (90:0.5) arc (90:360:0.5);
+    \end{tikzpicture} &
+    %% hollow cylinder approximate
+    \begin{tikzpicture}
+      \draw[opacity=0] (0,-2.5) -- (0,2.5);
+      \draw (0,0) circle (2cm);
+      \node[circle, fill=black, inner sep=1pt] at (0,0) {};
+      \foreach \i in {1,2,...,6} {
+        \pgfmathsetmacro{\ang}{90 + 60*(\i - 1)}
+        \pgfmathsetmacro{\inang}{\ang - 28}
+        \pgfmathsetmacro{\outang}{\ang + 28}
+        \draw[line width=5pt, black!30] (\inang:2) arc (\inang:\outang:2);
+        \pic at (\ang:2) {cross};
+      }
+    \end{tikzpicture} &
+    \raggedright\arraybackslash $\displaystyle\frac{1}{6}M\cdot R^2 + $ \vspace{3cm} \tikz{\node[opacity=0] at (0,0) {$MR^2$};} &
+    \raggedright\arraybackslash $\displaystyle\int\frac{M}{2\pi} \cdot R^2 \, dL = $ \vspace{3cm} \tikz{\node[opacity=0] at (0,0) {$MR^2$};} \\
     \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
+
+    solid sphere &
+    %% solid sphere
+    \begin{tikzpicture}[opacity=0.8]
+      \draw[opacity=0] (0,-3) -- (0,3);
+      \draw (0,-2.5,0) -- (0,2.5,0);
+      \draw[canvas is zx plane at y=2.5,->] (180:0.5) arc (180:450:0.5);
+      \node[circle, fill=black, inner sep=1pt] at (0,0) {};
+      \draw[ball color=black!30] (0,0) circle (2cm);
+    \end{tikzpicture} &
+    %% solid sphere approximate
+    \begin{tikzpicture}[opacity=0.8]
+      \draw[opacity=0] (0,-3) -- (0,3);
+      \pgfmathsetmacro{\r}{2 / (1 + sqrt(2)}
+      \pgfmathsetmacro{\sqrttwor}{2 * sqrt(2) / (1 + sqrt(2)}
+      \pic at (0,0,-\sqrttwor) {cross};
+      \draw[canvas is xy plane at z=-\sqrttwor, ball color=black!30] (0,0) circle (\r);  
+      \draw (0,-2.5,0) -- (0,2.5,0);
+      \draw[canvas is zx plane at y=2.5,->] (180:0.5) arc (180:450:0.5);
+      \node[circle, fill=black, inner sep=1pt] at (0,0) {};
+      \draw (0,0) circle (2cm);
+      \foreach \ang in {0,90,180,270} {
+        \pic at (\ang:\sqrttwor) {cross};
+        \draw[ball color=black!30] (\ang:\sqrttwor) circle (\r);
+      }
+      \pic at (0,0,\sqrttwor) {cross};
+      \draw[canvas is xy plane at z=\sqrttwor, ball color=black!30] (0,0) circle (\r);
+    \end{tikzpicture} &
+    \raggedright\arraybackslash $\displaystyle\frac{1}{6}M\cdot \left(\frac{\sqrt{2}}{1+\sqrt{2}}R\right)^2 + $ \vspace{4cm} \tikz{\node[opacity=0] at (0,0) {$\frac{4}{9+6\sqrt{2}}MR^2$};} &
+    \raggedright\arraybackslash $\displaystyle\int\frac{M}{\frac{4}{3}\pi R^3} \cdot (r\sin\phi)^2 \, dV = $ \vspace{4cm} \tikz{\node[opacity=0] at (0,0) {$\frac{2}{5}MR^2$};} \\
     \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
-    \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
-    \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
-    \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
-    \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
-    \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
-    \hline
-    ~ & ~ & ~ & ~ & ~ & ~ & ~ \\[2cm]
+
+    hollow sphere &
+    %% hollow sphere
+    \begin{tikzpicture}
+      \draw[opacity=0] (0,-3) -- (0,3);
+      \draw (0,-2.5,0) -- (0,2.5,0);
+      \draw[canvas is zx plane at y=2.5,->] (180:0.5) arc (180:450:0.5);
+      \node[circle, fill=black, inner sep=1pt] at (0,0) {};
+      \draw (0,0) circle (2cm);
+      \draw[canvas is yz plane at x=0] (0,0) circle (2cm);
+      \foreach \phi in {-90, -80, ..., 90} {
+        \pgfmathsetmacro{\cphi}{2 * cos(\phi}
+        \pgfmathsetmacro{\sphi}{2 * sin(\phi}
+        \draw[canvas is xz plane at y=\sphi] (0,0) circle (\cphi cm);
+      }
+    \end{tikzpicture} &
+    %% hollow sphere approximate
+    \begin{tikzpicture}[opacity=0.8]
+      \draw[opacity=0] (0,-3) -- (0,3);
+      \pgfmathsetmacro{\r}{sqrt(2)}
+      \draw[canvas is yz plane at x=-\r, ball color=black!30] (0,0) circle (\r);
+      \pic at (-\r,0,0) {cross};
+      \draw[canvas is zx plane at y=-\r, ball color=black!30] (0,0) circle (\r);
+      \pic at (0,-\r,0) {cross};
+      \draw[canvas is xy plane at z=-\r, ball color=black!30] (0,0) circle (\r);
+      \pic at (0,0,-\r) {cross};
+      \draw (0,-2.5,0) -- (0,2.5,0);
+      \draw[canvas is zx plane at y=2.5,->] (180:0.5) arc (180:450:0.5);
+      \node[circle, fill=black, inner sep=1pt] at (0,0) {};
+      %% \draw (0,0) circle (2cm);
+      \draw[canvas is yz plane at x=\r, ball color=black!30] (0,0) circle (\r);
+      \pic at (\r,0,0) {cross};
+      \draw[canvas is zx plane at y=\r, ball color=black!30] (0,0) circle (\r);
+      \pic at (0,\r,0) {cross};
+      \draw[canvas is xy plane at z=\r, ball color=black!30] (0,0) circle (\r);
+      \pic at (0,0,\r) {cross};
+      \draw (0,\r,0) -- (0,2.5,0);
+    \end{tikzpicture} &
+    \raggedright\arraybackslash $\displaystyle\frac{1}{6}M\cdot R^2 + $ \vspace{4cm} \tikz{\node[opacity=0] at (0,0) {$\frac{2}{3}MR^2$};} &
+    \raggedright\arraybackslash $\displaystyle\int\frac{M}{4\pi R^2} \cdot (r\sin\phi)^2 \, dA = $ \vspace{4cm} \tikz{\node[opacity=0] at (0,0) {$\frac{2}{3}MR^2$};} \\
     \hline
   \end{tabular}
-
-\vspace{2cm}
-
-average of $\sigma^2 =$
 \end{center}
 
+
 \end{document}
-
-
-
 
 
