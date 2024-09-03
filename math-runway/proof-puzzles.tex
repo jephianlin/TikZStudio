@@ -1,0 +1,189 @@
+\documentclass{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{array}
+\usepackage[a3paper, margin=0in]{geometry}
+%% landscape
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzset{
+  every picture/.style={very thick}, 
+  every node/.style={draw=none, rectangle, text width=9cm, align=flush center, scale=3, transform shape}
+}
+
+%%font
+\usepackage{euler}
+\usepackage[OT1]{eulervm}
+\renewcommand{\rmdefault}{pplx}
+
+\tikzset{
+  dline/.pic = {
+    \draw[dotted] (0,0) -- (0.33\textwidth, 0);
+  }
+}
+
+
+\begin{document}
+%% absolute positioning
+%% \begin{tikzpicture}[remember picture, overlay]
+%%   \draw ([xshift=\x]current page.south) -- ([xshift=\x]current page.north);
+%% \end{tikzpicture}    
+
+\pagenumbering{gobble}
+
+\centering
+
+\begin{tikzpicture}
+\node (text) at (0,0) {\textbf{Problem}.  Prove that $\{3k + 1: k\in\mathbb{Z}\} = \{3k - 2: k\in\mathbb{Z}\}$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Let $X = \{3k + 1: k\in\mathbb{Z}\}$ and $Y = \{3k - 2: k\in\mathbb{Z}\}$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {We need to show that $x\in X$ implies $x\in Y$ \\ and $y\in Y$ implies $y\in X$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Let $x\in X$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Then $x$ can be written as $x = 3k + 1$ for some $k$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Therefore, $x = 3(k+1) - 2$, \\ which implies $x\in Y$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Since the choice of $x\in X$ is arbitrary, \\ we have $X\subseteq Y$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {On the other hand, let $y\in Y$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Then $y$ can be written as $y = 3k - 2$ for some $k$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Therefore, $y = 3(k-1) + 1$, \\ which implies $y\in X$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Since the choice of $y\in Y$ is arbitrary, \\ we have $Y\subseteq X$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {\textbf{Problem}. Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a function \\ defined by $f(x) = x^3$. \\ Show that $f$ is injective.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Let $a$ and $b$ be numbers in $\mathbb{R}$ such that $a \neq b$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {We may assume that $a < b$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {This implies that $f(a) = a^3 < b^3 = f(b)$, \\ so $f$ is injective.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {\textbf{Problem}. Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a function \\ defined by $g(x) = x^2$. \\ Show that $g$ is not injective.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {It is sufficient to find distinct $a$ and $b$ in $\mathbb{R}$ \\ such that $g(a) = g(b)$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {For example, $g(-1) = g(1)$, \\ so $g$ is not injective.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {\textbf{Problem}. Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a function \\ defined by $f(x) = x^3$. \\ Show that $f$ is surjective.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Let $y$ be a number in $\mathbb{R}$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Then we may find $x = \sqrt[3]{y}$ \\ such that $f(x) = y$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Therefore, $f$ is surjective.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {\textbf{Problem}. Let $f: \mathbb{R} \rightarrow \mathbb{R}$ be a function \\ defined by $g(x) = x^2$. \\ Show that $g$ is not surjective.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {It is sufficient to find some $y$ in $\mathbb{R}$ \\ such that $y$ cannot be written as $g(x)$ for any $x \in \mathbb{R}$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Observe that $g(x) \geq 0$ for any $x\in\mathbb{R}$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Thus, we may choose, for example, $y = -1$ \\ so that $y \neq g(x)$ for any $x \in \mathbb{R}$.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node (text) at (0,0) {Therefore, $g$ is not surjective.};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+\end{document}
+
+
+
+
+
+
+
+
+\begin{tikzpicture}
+\node (text) at (0,0) {};
+\pic at ([xshift=-0.5\textwidth]text.south) {dline};
+\end{tikzpicture}
+
+
+
+
+
+
