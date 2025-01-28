@@ -303,6 +303,47 @@ weight/.style={rectangle, draw=none, fill=none, scale=0.3, inner sep=3pt}]
   }
 };
 
+\begin{scope}
+[xscale=1, 
+yellow!40!brown, 
+every node/.style={circle, draw, fill, inner sep=1pt}, 
+very thick,
+every label/.style={draw=none, fill=none, rectangle}]
+\node[label={below:$-5$}] (rs0) at (0.5,-2) {};
+\node[label={right:$-2$}] (rs1) at (1,-3) {};
+\node[label={below:$0$}] (rs2) at (2,-2.1) {};
+\node[label={below:$2$}] (rs3) at (3,-1.9) {};
+\node[label={right:$5$}] (rs4) at (4,-1) {};
+\draw[out=0, in=190] (rs0) to (rs2);
+\draw[out=90, in=190] (rs1) to (rs2);
+\draw[out=10, in=200] (rs2) to (rs3);
+\draw[out=20, in=290] (rs3) to (rs4);
+\end{scope}
+
+\begin{scope}
+[xscale=-1, 
+yellow!40!brown, 
+every node/.style={circle, draw, fill, inner sep=1pt}, 
+very thick,
+every label/.style={draw=none, fill=none, rectangle}]
+\node (rs0) at (0.5,-2) {};
+\node (rs1) at (1,-3) {};
+\node (rs2) at (2,-2.1) {};
+\node (rs3) at (3,-1.9) {};
+\node (rs4) at (4,-1) {};
+\draw[out=0, in=190] (rs0) to node[midway,draw=none,fill=blue!40] {$1$} (rs2);
+\draw[out=90, in=190] (rs1) to node[midway,draw=none,fill=blue!40] {$1$} (rs2);
+\draw[out=10, in=200] (rs2) to node[midway,draw=none,fill=blue!40] {$\frac{7}{2}$} (rs3);
+\draw[out=20, in=290] (rs3) to node[midway,draw=none,fill=blue!40] {$\frac{5}{3}$} (rs4);
+\end{scope}
+
+\begin{scope}[yellow!40!brown, very thick]
+\node[align=center] at (-2.5,-3.5) {weighted\\Laplacian matrix};
+\node at (2.5,-3.5) {Fiedler vector};
+\draw[triangle 45-triangle 45] (-1,-3.5) --node[midway, above, rectangle, scale=0.6] {bijective} (1,-3.5);
+\end{scope}
+%% cwp
+
 \end{pgfonlayer}
 
 
@@ -321,25 +362,25 @@ weight/.style={rectangle, draw=none, fill=none, scale=0.3, inner sep=3pt}]
 %% \node[rectangle, draw=none, opacity=0] at (0,-0.5) {\Huge\tt FREE HONG KONG};
 
 %%Month code
-\node[above] at (-6.5,-1.9) {2024 month code};
+\node[above] at (-6.5,-1.9) {2025 month code};
 \node[scale=0.7,below] at (-6.5,-1.8) {\begin{tabular}{cccc} 
 Jan & Feb & Mar & Apr \\
- 0 & 3 & 4 & 0 \\
+ 2 & 5 & 5 & 1 \\
 \hline
 May & Jun & Jul & Aug \\
- 2 & 5 & 0 & 3 \\
+ 3 & 6 & 1 & 4 \\
 \hline
 Sept & Oct & Nov & Dec \\
- 6 & 1 & 4 & 6 \\
+ 0 & 2 & 5 & 0 \\
 \end{tabular}};
 \node[scale=0.5,above] at (-6.5,-4) {$(\text{code}+\text{date})\mathbin{\%}7=\text{day of week}$};
 
 %%Goal
 % y 1.3 for three sentences
 \node[yshift=1.3cm, xshift=-0.3cm, left, align=right] at (Dominican) {
-\it Math and mind. \\
-\it That's pretty much \\
-\it all we need to care about.};
+\it 10 minutes of meditation \\
+\it $+$ 1 hour of research \\
+\it $=$ happy life};
 
 %%Signature
 \node[yshift=0.3cm,left] at (Dominican) {\it Jephian};
@@ -380,36 +421,3 @@ Sept & Oct & Nov & Dec \\
     \pgfmathsetlength{\pgf@x}{\pgfmathresult pt}
 }
 \makeatother
-
-
-
-
-
-
-%%% ILAS2025-LOGO
-\begin{scope}[white, xshift=6cm, yshift=3cm, scale=0.8, transform shape, 
-    every node/.style={circle, draw, inner sep=1pt}]
-\begin{scope}[very thick]
-\node (0) at (-2,0) {};
-\node (1) at (-1,0) {};
-\node (2) at (1,0) {};
-\node (3) at (2,0) {};
-\node (4) at (0,0.5) {};
-\node (5) at (0,0.7) {};
-\node (6) at (0,1.5) {};
-\node (7) at (0,2) {};
-
-\draw (7) -- (0);
-\draw (7) -- (1);
-\draw (7) -- (2);
-\draw (7) -- (3);
-\draw (4) -- (1);
-\draw (4) -- (2);
-\draw (4) -- (5) -- (6) -- (7);
-\draw (4) to [out=180, in=0, out looseness=1] (0);
-\draw (4) to [out=0, in=180, out looseness=1] (3);
-\draw (5) to [out=180, in=0, out looseness=0.8] (0);
-\draw (5) to [out=0, in=180, out looseness=0.8] (3);
-
-\node[draw=none,rectangle] at (0,0) {\footnotesize Kaohsiung};
-\end{scope}
