@@ -222,9 +222,9 @@ family/.pic={
 
 
 \begin{scope}
-[gray, 
-every node/.style={circle, draw, fill, inner sep=2pt}, very thick, 
-weight/.style={rectangle, draw=none,fill=none, scale=0.3}]
+[red!40!orange, 
+every node/.style={circle, draw, fill, inner sep=1pt}, very thick, 
+weight/.style={rectangle, draw=none, fill=none, scale=0.3, inner sep=3pt}]
 
 %% C4
 \begin{scope}[shift={(-7,4)}]
@@ -244,32 +244,64 @@ weight/.style={rectangle, draw=none,fill=none, scale=0.3}]
 \node (k4e2) at (0.8,0.8) {};
 \node (k4e3) at (0.8,-0.8) {};
 \node (k4e4) at (-0.8,-0.8) {};
-\draw (k4e1) --node[midway,weight,below]{$1$} (k4e2);
-\draw (k4e2) --node[midway,weight,left]{$\frac{5-\sqrt{5}}{4}$} (k4e3);
-\draw (k4e3) --node[midway,weight,above]{$1$} (k4e4);
+\draw (k4e1) --node[midway,weight,below]{$\frac{7+\sqrt{5}}{8}$} (k4e2);
+\draw (k4e2) --node[midway,weight,left]{$\frac{7-\sqrt{5}}{8}$} (k4e3);
+\draw (k4e3) --node[midway,weight,above]{$\frac{5-\sqrt{5}}{4}$} (k4e4);
 \draw (k4e4) --node[midway,weight,right]{$\frac{5+\sqrt{5}}{4}$} (k4e1);
-\draw (k4e4) --node[midway,weight,right]{$\frac{5+\sqrt{5}}{4}$} (k4e1);
+\draw (k4e1) --node[midway,weight,anchor=45]{$\frac{1}{4}$} (k4e3);
+\end{scope}
+
+%% K4
+\begin{scope}[shift={(-6,2)}]
+\node (k41) at (-0.8,0.8) {};
+\node (k42) at (0.8,0.8) {};
+\node (k43) at (0.8,-0.8) {};
+\node (k44) at (-0.8,-0.8) {};
+\draw (k41) --node[midway,weight,below]{$2$} (k42);
+\draw (k42) --node[midway,weight,left]{$\frac{1}{2}$} (k43);
+\draw (k43) --node[midway,weight,above]{$\frac{1}{2}$} (k44);
+\draw (k44) --node[midway,weight,right]{$\frac{1}{2}$} (k41);
+\draw (k41) --node[near start,weight,anchor=45]{$\frac{1}{2}$} (k43);
+\draw (k42) --node[near end,weight,anchor=-45]{$\frac{1}{2}$} (k44);
+\end{scope}
+
+%% K13
+\begin{scope}[shift={(7,4)}]
+\node (k131) at (-0.8,0.8) {};
+\node (k132) at (0.8,0.8) {};
+\node (k133) at (0.8,-0.8) {};
+\node (k134) at (-0.8,-0.8) {};
+\draw (k132) -- (k131);
+\draw (k132) -- (k133);
+\draw (k132) -- (k134);
+\end{scope}
+
+%% Paw
+\begin{scope}[shift={(5,4)}]
+\node (paw1) at (-0.8,0.8) {};
+\node (paw2) at (0.8,0.8) {};
+\node (paw3) at (0.8,-0.8) {};
+\node (paw4) at (-0.8,-0.8) {};
+\draw (paw2) -- (paw1);
+\draw (paw2) -- (paw3);
+\draw (paw2) -- (paw4);
+\draw (paw3) -- (paw4);
 \end{scope}
 
 
 
-\node[rectangle] at (0,4) {$\{2,0,2,5\}$};
+\node[rectangle, draw=none, fill=none] (spec) at (0,4) {$\{2,0,2,5\}$};
+\node[rectangle, draw=none, fill=none, below=0.5cm] (spec.south) at (0,4) {weight Laplacian spectrum};
 \draw[very thick, -triangle 45] (-4,4) -- (-1,4);
-\draw[very thick, -triangle 45] (4,4) -- (1,4);
+\draw[very thick, -triangle 45] (4,4) --node[midway,draw=none,fill=none,scale=2] {$\times$} (1,4);
 \end{scope}
 
-
-% URL
-%% \node[red!70!black, draw=none, rectangle, align=center, scale=0.6, transform shape] (ilas-web) at (6,1) {Visit\\\tt https://ilas2025.tw/\\for more\\about the conference!};
-
-\node[draw=none] at (6,1) {
+% text: allow (1,2,1)
+\node[draw=none] at (6,2) {
   \href{https://ilas2025.tw/}{
-    \tikz\node[red!70!black, draw=none, rectangle, align=center, scale=0.6, transform shape] at (0,0) {Visit\\\tt https://ilas2025.tw/\\for more\\about the conference!};
+    \tikz\node[red!40!orange, draw=none, rectangle, align=center, scale=0.6] at (0,0) {allow ordered multiplicity list $(1,2,1)$\\but not spectrum $\{0,2^{(2)},5\}$};
   }
 };
-
-% text
-\node[red!70!black, draw=none, rectangle, align=center, scale=0.6, transform shape] at (-6,1) {A yam graph\\ does not allow\\ nullity pair $(1,2)$\\ with the SNIP.};
 
 \end{pgfonlayer}
 
