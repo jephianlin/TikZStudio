@@ -291,17 +291,19 @@ weight/.style={rectangle, draw=none, fill=none, scale=0.3, inner sep=3pt}]
 
 
 \node[rectangle, draw=none, fill=none] (spec) at (0,4) {$\{2,0,2,5\}$};
-\node[rectangle, draw=none, fill=none, below=0.5cm] (spec.south) at (0,4) {weight Laplacian spectrum};
+\node[rectangle, draw=none, fill=none, below=0.5cm] (spec.south) at (0,4) {weighted Laplacian spectrum};
 \draw[very thick, -triangle 45] (-4,4) -- (-1,4);
 \draw[very thick, -triangle 45] (4,4) --node[midway,draw=none,fill=none,scale=2] {$\times$} (1,4);
 \end{scope}
 
 % text: allow (1,2,1)
-\node[draw=none] at (6,2) {
-  \href{https://ilas2025.tw/}{
-    \tikz\node[red!40!orange, draw=none, rectangle, align=center, scale=0.6] at (0,0) {allow ordered multiplicity list $(1,2,1)$\\but not spectrum $\{0,2^{(2)},5\}$};
-  }
-};
+\node[draw=none, red!40!orange, align=center, scale=0.6] at (6,2) {allow ordered multiplicity list $(1,2,1)$\\but not spectrum $\{0,2^{(2)},5\}$\\by its Laplacian matrices};
+
+%% \node[draw=none] at (6,2) {
+%%   \href{https://ilas2025.tw/}{
+%%     \tikz\node[red!40!orange, draw=none, rectangle, align=center, scale=0.6] at (0,0) {allow ordered multiplicity list $(1,2,1)$\\but not spectrum $\{0,2^{(2)},5\}$\\by its Laplacian matrices};
+%%   }
+%% };
 
 \begin{scope}
 [xscale=1, 
@@ -378,9 +380,9 @@ Sept & Oct & Nov & Dec \\
 %%Goal
 % y 1.3 for three sentences
 \node[yshift=1.3cm, xshift=-0.3cm, left, align=right] at (Dominican) {
-\it 10 minutes of meditation \\
-\it $+$ 1 hour of research \\
-\it $=$ happy life};
+\it $10$ minutes of meditation \\
+\it $+$ $1$ hour of research \\
+\it $\sim$ a good life};
 
 %%Signature
 \node[yshift=0.3cm,left] at (Dominican) {\it Jephian};
