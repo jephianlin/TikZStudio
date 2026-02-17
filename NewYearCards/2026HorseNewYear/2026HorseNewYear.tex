@@ -178,10 +178,38 @@ family/.pic={
 }
 }
 
+%% hudi
+\tikzset{
+hudi/.pic={
+\pgfmathsetmacro{\hudiscale}{0.2}
+\begin{scope}[scale=\hudiscale]
+\pgfmathsetmacro{\hudiwidth}{\hudiscale *0.3 cm}
+\pgfmathsetmacro{\hudibigcorner}{\hudiscale *4 pt}
+\pgfmathsetmacro{\hudismallcorner}{\hudiscale *0.2 cm}
+\begin{scope}[red!40!orange, rounded corners=\hudibigcorner, line width=\hudiwidth, line cap=round]
+%% body
+\draw[fill,thin] (-1.4,0.5) -- (1,0.5) -- (1,-0.4) -- (-1.5,-0.4) -- (-2,0.1);
+%% head
+\draw[fill,thin] (-2,-0.4) -- (-2.7,0.6) -- (-2.5,0.9) -- (-1.5,0.9) -- (-1.3,0.6) -- (-2,-0.4);
+\draw[fill,thin] (-2.4,0.8) -- ++(-0.1,0.2) -- ++(0.2,0.3) -- ++(0.2,-0.5);
+\draw[fill,thin] (-1.6,0.8) -- ++(0.1,0.2) -- ++(-0.2,0.3) -- ++(-0.2,-0.5);
+\draw[fill=red!40!orange!40!white,thin] (-2.56,0.4) -- ++(0.3,0) -- (-2,-0.4);
+\draw[fill=red!40!orange!40!white,thin] (-1.44,0.4) -- ++(-0.3,0) -- (-2,-0.4);
+%% legs and tail
+\draw (-1.5,-0.2) -- (-1.6,-1);
+\draw (-1.2,-0.2) -- (-1.2,-1);
+\draw (0.8,-0.2) -- (1,-1);
+\draw (0.5,-0.2) -- (0.5,-1);
+\draw[fill,thin] (1,0.4) -- (1.2,0.3) -- (1.6,-0.7) -- (1.4,-0.6) -- (0.9,0.3);
+\end{scope}
+\end{scope}
+}
+}
+
 \parindent=0pt
 
 \begin{document}
-%%2025NewYear
+%%2026NewYear
 %% 16:9
 \begin{tikzpicture}
 \coordinate (Jamaica) at (-8,-4);
@@ -193,8 +221,8 @@ family/.pic={
 
 %%Help Lines
 \begin{pgfonlayer}{beta}
-\draw [step=1, black!50, thin] (Jamaica) grid (TurksCaicos);
-\draw (0,0) circle [radius=0.2cm];
+%% \draw [step=1, black!50, thin] (Jamaica) grid (TurksCaicos);
+%% \draw (0,0) circle [radius=0.2cm];
 \end{pgfonlayer}
 
 
@@ -226,8 +254,29 @@ family/.pic={
 %%Sea
 \draw[fill=ultramarine,name path=sealevel] decorate[decoration={name=random steps}] {(0,-0.5 -| Jamaica) -- (0,-0.5 -| Dominican)} -- (Dominican) -- (Jamaica) -- cycle;
 
+%% zombia and hudi
+\pic[rotate=-7, xscale=-1] at (-2.8,0.38) {zombia};
+\pic at (3.05,0.52) {hudi};
+
+%% TLDR turtles
+%% \pic[opacity=0.4] at (0,-2) {SatanHeart};
+\node at (0,-2.25) {
+  \rotatebox{45}{
+    \scalebox{0.5}{
+      \begin{tikzpicture}
+        \foreach \x/\y/\ang in {-1/2/-90, -2/-1/0, 1/-2/90, 2/1/180} {
+          \pgfmathsetmacro{\rang}{\ang - 90}
+          \foreach \i in {0,2,3} {
+            \pic[rotate=\rang] at ([shift={(\ang:\i)}]\x,\y) {totu};
+          }
+        }
+      \end{tikzpicture}
+    }
+  }
+};
+
 %% VCH
-\node[silver, below] at (0,5) {
+\node[ILASgold, below] at (0,5) {
   $\underset{\substack{\text{confluent}\\\text{Vandermonde matrix}}}
     {\begin{bmatrix}
     1 & 2 & 4 & 8 \\
@@ -261,9 +310,7 @@ family/.pic={
   \end{bmatrix}}$
 };
 
-
 %% cwp
-
 \end{pgfonlayer}
 
 
@@ -271,7 +318,7 @@ family/.pic={
 \begin{pgfonlayer}{beta}
 %%Happy New Math Year
 %\draw[decorate,decoration={text along path,text={|\color{red!80!yellow} \LARGE \it|Happy New Math Year 2020}}] (-3.5,-2.5) .. controls (-1,4.5) and (1,4.5) .. (3.5,-2.5);
-%% \node[rectangle, draw=none, orange!80!yellow] at (0,-3) {\LARGE\it Happy New Math Year 2023};
+\node[rectangle, draw=none, red!80!yellow] at (0,0) {\LARGE\it Happy New Math Year 2026};
 %% \node[rectangle, draw=none, ILASgold, above] (hny) at (ILAS2025.north) {\LARGE\it Happy New Math Year of};
 %% \draw[yellow, very thick, -triangle 45, shorten <=0.1cm, shorten >=0.1cm] (hny.20) .. controls ++(0,2) and ++(0,-2) .. (2023.south);
 %% \node[rectangle, draw=none, opacity=0] at (0,-0.5) {\Huge\tt FREE HONG KONG};
@@ -295,20 +342,16 @@ Sept & Oct & Nov & Dec \\
 %%Goal
 \begin{scope}[silver]
 % y 1.3 for three sentences
+% y 1.0 for two sentences
 % y 0.8 for one sentence
-\node[yshift=0.8cm, xshift=-0.3cm, left, align=right] at (Dominican) {
-%% \it $10$ minutes of meditation \\
-%% \it $+$ $1$ hour of research \\
-\it Be still};
+\node[yshift=1.0cm, xshift=-0.3cm, left, align=right] at (Dominican) {
+\it Be kind\\
+\it and be grateful.};
 
 %%Signature
 \node[yshift=0.3cm,left] at (Dominican) {\it Jephian};
 \end{scope}
-
 \end{pgfonlayer}
-
-
-
 
 \end{tikzpicture}
 \end{document}
@@ -341,15 +384,3 @@ Sept & Oct & Nov & Dec \\
     \pgfmathsetlength{\pgf@x}{\pgfmathresult pt}
 }
 \makeatother
-
-
-ILAS done, streamlit
-talk similarity spectrum
-NSYSU --> NYCU: beach --> wind?
-
-
-companion matrix --> 2026 diag
-Fiedler vector --> Leslie's tree
-ij3 --> oscillatory matrix
-xixi
-IEPL-strong
